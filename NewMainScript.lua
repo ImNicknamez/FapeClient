@@ -37,7 +37,7 @@ local function vapeGithubRequest(scripturl)
 				displayErrorPopup("The connection to github is taking a while, Please be patient.")
 			end
 		end)
-		suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/mikusgszyp/VapeV4_roblox_extrenal/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
+		suc, res = pcall(function() return game:HttpGet("https://github.com/ImNicknamez/FapeClient/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
 		if not suc or res == "404: Not Found" then
 			displayErrorPopup("Failed to connect to github : vape/"..scripturl.." : "..res)
 			error(res)
@@ -50,7 +50,7 @@ end
 
 if not shared.VapeDeveloper then 
 	local commit = "main"
-	for i,v in pairs(game:HttpGet("https://github.com/mikusgszyp/VapeV4_roblox_extrenal"):split("\n")) do 
+	for i,v in pairs(game:HttpGet("https://github.com/ImNicknamez/FapeClient"):split("\n")) do 
 		if v:find("commit") and v:find("fragment") then 
 			local str = v:split("/")[5]
 			commit = str:sub(0, str:find('"') - 1)
@@ -86,8 +86,8 @@ if not shared.VapeDeveloper then
 			writefile("vape/commithash.txt", commit)
 		end
 	else
-		displayErrorPopup("Failed to connect to github, please try using a VPN.")
-		error("Failed to connect to github, please try using a VPN.")
+		displayErrorPopup("kill your self bc error with github pussy, use VPN BITCH")
+		error("kill your self bc error with github pussy, use VPN BITCH")
 	end
 end
 
