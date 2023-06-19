@@ -98,14 +98,14 @@ local worldtoviewportpoint = function(pos)
 end
 
 local function vapeGithubRequest(scripturl)
-	if not isfile("vape/"..scripturl) then
-		local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
+	if not isfile("FapeClient/"..scripturl) then
+		local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/"..readfile("FapeClient/commithash.txt").."/"..scripturl, true) end)
 		assert(suc, res)
 		assert(res ~= "404: Not Found", res)
 		if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
-		writefile("vape/"..scripturl, res)
+		writefile("FapeClient/"..scripturl, res)
 	end
-	return readfile("vape/"..scripturl)
+	return readfile("FapeClient/"..scripturl)
 end
 
 local function downloadVapeAsset(path)
@@ -124,7 +124,7 @@ local function downloadVapeAsset(path)
 			repeat task.wait() until isfile(path)
 			textlabel:Destroy()
 		end)
-		local suc, req = pcall(function() return vapeGithubRequest(path:gsub("vape/assets", "assets")) end)
+		local suc, req = pcall(function() return vapeGithubRequest(path:gsub("FapeClient/assets", "assets")) end)
         if suc and req then
 		    writefile(path, req)
         else
@@ -806,7 +806,7 @@ local function CreateAutoHotbarGUI(children2, argstable)
 	addbutton.Position = UDim2.new(0, 93, 0, 9)
 	addbutton.Size = UDim2.new(0, 12, 0, 12)
 	addbutton.ImageColor3 = Color3.fromRGB(5, 133, 104)
-	addbutton.Image = downloadVapeAsset("vape/assets/AddItem.png")
+	addbutton.Image = downloadVapeAsset("FapeClient/assets/AddItem.png")
 	addbutton.Parent = toggleframe1
 	local children3 = Instance.new("Frame")
 	children3.Name = argstable["Name"].."Children"
@@ -847,7 +847,7 @@ local function CreateAutoHotbarGUI(children2, argstable)
 	ItemListExitButton.ImageColor3 = Color3.fromRGB(121, 121, 121)
 	ItemListExitButton.Size = UDim2.new(0, 24, 0, 24)
 	ItemListExitButton.AutoButtonColor = false
-	ItemListExitButton.Image = downloadVapeAsset("vape/assets/ExitIcon1.png")
+	ItemListExitButton.Image = downloadVapeAsset("FapeClient/assets/ExitIcon1.png")
 	ItemListExitButton.Visible = true
 	ItemListExitButton.Position = UDim2.new(1, -31, 0, 8)
 	ItemListExitButton.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
@@ -868,7 +868,7 @@ local function CreateAutoHotbarGUI(children2, argstable)
 	local ItemListFrameShadow = Instance.new("ImageLabel")
 	ItemListFrameShadow.AnchorPoint = Vector2.new(0.5, 0.5)
 	ItemListFrameShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-	ItemListFrameShadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
+	ItemListFrameShadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
 	ItemListFrameShadow.BackgroundTransparency = 1
 	ItemListFrameShadow.ZIndex = -1
 	ItemListFrameShadow.Size = UDim2.new(1, 6, 1, 6)
@@ -1823,7 +1823,7 @@ runFunction(function()
 				end
 				if str == "" then str = "skill issue" end
 				local video = Instance.new("VideoFrame")
-				video.Video = downloadVapeAsset("vape/assets/skill.webm")
+				video.Video = downloadVapeAsset("FapeClient/assets/skill.webm")
 				video.Size = UDim2.new(1, 0, 1, 36)
 				video.Visible = false
 				video.Position = UDim2.new(0, 0, 0, -36)
@@ -10121,7 +10121,7 @@ runFunction(function()
 	local origtpstring = bedwarsStore.TPString
 	local Overlay = GuiLibrary.CreateCustomWindow({
 		Name = "Overlay",
-		Icon = "vape/assets/TargetIcon1.png",
+		Icon = "FapeClient/assets/TargetIcon1.png",
 		IconSize = 16
 	})
 	local overlayframe = Instance.new("Frame")
@@ -10221,7 +10221,7 @@ runFunction(function()
 
 	GuiLibrary.ObjectsThatCanBeSaved["GUIWindow"]["Api"].CreateCustomToggle({
 		Name = "Overlay", 
-		Icon = "vape/assets/TargetIcon1.png", 
+		Icon = "FapeClient/assets/TargetIcon1.png", 
 		Function = function(callback)
 			overlayenabled = callback
 			Overlay.SetVisible(callback) 
@@ -10402,7 +10402,7 @@ task.spawn(function()
 		vapeiconicon.Size = UDim2.new(1, -10, 1, -10)
 		vapeiconicon.AnchorPoint = Vector2.new(0.5, 0.5)
 		vapeiconicon.Position = UDim2.new(0.5, 0, 0.5, 0)
-		vapeiconicon.Image = getcustomasset("vape/assets/VapeIcon.png")
+		vapeiconicon.Image = getcustomasset("FapeClient/assets/VapeIcon.png")
 		vapeiconicon.Parent = vapeicon
 		local vapeiconcorner = Instance.new("UICorner")
 		vapeiconcorner.CornerRadius = UDim.new(0, 256)
@@ -10478,7 +10478,7 @@ task.spawn(function()
 	task.spawn(function()
 		pcall(function()
 			if inputService.TouchEnabled or inputService:GetPlatform() == Enum.Platform.UWP then return end
-			if not isfile("vape/Profiles/bedwarsdata.txt") then 
+			if not isfile("FapeClient/Profiles/bedwarsdata.txt") then 
 				local commit = "main"
 				for i,v in pairs(game:HttpGet("https://github.com/ImNicknamez/FapeClient"):split("\n")) do 
 					if v:find("commit") and v:find("fragment") then 
@@ -10487,9 +10487,9 @@ task.spawn(function()
 						break
 					end
 				end
-				writefile("vape/Profiles/bedwarsdata.txt", game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/"..commit.."/CustomModules/bedwarsdata", true))
+				writefile("FapeClient/Profiles/bedwarsdata.txt", game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/"..commit.."/CustomModules/bedwarsdata", true))
 			end
-			local olddata = readfile("vape/Profiles/bedwarsdata.txt")
+			local olddata = readfile("FapeClient/Profiles/bedwarsdata.txt")
 
 			repeat
 				local commit = "main"
@@ -10505,7 +10505,7 @@ task.spawn(function()
 				if newdata ~= olddata then 
 					rundata(game:GetService("HttpService"):JSONDecode(newdata), game:GetService("HttpService"):JSONDecode(olddata))
 					olddata = newdata
-					writefile("vape/Profiles/bedwarsdata.txt", newdata)
+					writefile("FapeClient/Profiles/bedwarsdata.txt", newdata)
 				end
 
 				task.wait(10)

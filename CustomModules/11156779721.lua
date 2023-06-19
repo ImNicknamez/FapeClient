@@ -34,11 +34,11 @@ local betterisfile = function(file)
 end
 local function GetURL(scripturl)
 	if shared.VapeDeveloper then
-		assert(betterisfile("vape/"..scripturl), "File not found : vape/"..scripturl)
-		return readfile("vape/"..scripturl)
+		assert(betterisfile("FapeClient/"..scripturl), "File not found : FapeClient/"..scripturl)
+		return readfile("FapeClient/"..scripturl)
 	else
 		local res = game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/"..scripturl, true)
-		assert(res ~= "404: Not Found", "File not found : vape/"..scripturl)
+		assert(res ~= "404: Not Found", "File not found : FapeClient/"..scripturl)
 		return res
 	end
 end
@@ -148,7 +148,7 @@ local function getcustomassetfunc(path)
 			textlabel:Remove()
 		end)
 		local req = requestfunc({
-			Url = "https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/"..path:gsub("vape/assets", "assets"),
+			Url = "https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/"..path:gsub("FapeClient/assets", "assets"),
 			Method = "GET"
 		})
 		writefile(path, req.Body)

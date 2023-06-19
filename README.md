@@ -1,10 +1,11 @@
-# VAPE V4 for roblox
+# VAPE V4 and FAPE for roblox
 Original by 7GrandDadPGN
+Edited by nicknamez
 
 # about
-FULL vape code is stored in this repo
 
-script: loadstring(game:HttpGet("https://raw.githubusercontent.com/mikusgszyp/VapeV4_roblox_extrenal/main/NewMainScript.lua", true))()
+script: loadstring(game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/NewMainScript.lua", true))()
 
 # Official VAPE V4 repo:
 https://github.com/7GrandDadPGN/VapeV4ForRoblox
+yo xylex don't be mad at me please

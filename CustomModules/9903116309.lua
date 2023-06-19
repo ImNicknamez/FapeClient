@@ -91,7 +91,7 @@ local function getcustomassetfunc(path)
 			textlabel:Remove()
 		end)
 		local req = requestfunc({
-			Url = "https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/"..path:gsub("vape/assets", "assets"),
+			Url = "https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/"..path:gsub("FapeClient/assets", "assets"),
 			Method = "GET"
 		})
 		writefile(path, req.Body)
@@ -973,7 +973,7 @@ runcode(function()
 							thing.AnchorPoint = Vector2.new(0.5, 0.5)
 							thing.Position = UDim2.new(0.5, 0, 0.5, 0)
 							thing.Visible = false
-							thing.Image = getcustomassetfunc("vape/assets/ArrowIndicator.png")
+							thing.Image = getcustomassetfunc("FapeClient/assets/ArrowIndicator.png")
 							thing.Name = plr.Name
 							thing.Parent = ArrowsFolder
 						end
