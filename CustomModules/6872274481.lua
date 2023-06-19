@@ -8735,6 +8735,34 @@ runFunction(function()
 	AutoToxicPhrases8.Object.AddBoxBKG.AddBox.TextSize = 12
 end)
 
+runFunction(function()
+	local breathe = {Enabled = false}
+	breathe = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
+		Name = "DragonExploit",
+		Function = function(callback)
+			if callback then
+				task.spawn(function()
+					repeat
+						task.wait(0.001)
+						local success, module = pcall(function()
+							return game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("DragonBreath")
+						end)
+						
+						if success and module then
+							local player = game:GetService("Players").LocalPlayer
+							module:FireServer({player = player})
+						else
+							warn("Failed to find the DragonBreath module.")
+							break
+						end
+					until (not breathe.Enabled)
+				end)
+			end
+		end
+	})
+end)
+																																																						
+
 
 runFunction(function()
 	local ChestStealer = {Enabled = false}
