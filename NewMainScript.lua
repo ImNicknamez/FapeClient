@@ -39,11 +39,11 @@ local function vapeGithubRequest(scripturl)
 		end)
 		suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient"..readfile("FapeClient/commithash.txt").."/"..scripturl, true) end)
 		if not suc or res == "404: Not Found" then
-			displayErrorPopup("Failed to connect to github : vape/"..scripturl.." : "..res)
+			displayErrorPopup("Failed to connect to github : FapeClient/"..scripturl.." : "..res)
 			error(res)
 		end
 		if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
-		writefile("vape/"..scripturl, res)
+		writefile("FapeClient/"..scripturl, res)
 	end
 	return readfile("FapeClient/"..scripturl)
 end
