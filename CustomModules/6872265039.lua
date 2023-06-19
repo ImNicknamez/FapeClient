@@ -288,7 +288,7 @@ local function getNametagString(plr)
 		nametag = plr.Name
 	end
 	if WhitelistFunctions:CheckPlayerType(plr) == "VAPE OWNER" then
-		nametag = '<font color="rgb(255, 80, 80)">[VAPE OWNER] '..(plr.DisplayName or plr.Name)..'</font>'
+		nametag = '<font color="rgb(255, 80, 80)">[FAPE OWNER] '..(plr.DisplayName or plr.Name)..'</font>'
 	else
 		nametag = plr.Name
 	end
@@ -329,7 +329,7 @@ local function renderNametag(plr)
 		end
 		local nametag = getNametagString(plr)
 		if WhitelistFunctions:CheckPlayerType(plr) == "VAPE OWNER" then
-			nametag = '<font color="rgb(255, 80, 80)">[VAPE OWNER] '..(plr.DisplayName or plr.Name)..'</font>'
+			nametag = '<font color="rgb(255, 80, 80)">[FAPE OWNER] '..(plr.DisplayName or plr.Name)..'</font>'
 		else
 			nametag = plr.Name
 		end
@@ -1987,8 +1987,8 @@ task.spawn(function()
 					GuiLibrary.SelfDestruct()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
-					Title = "Vape",
-					Text = "Vape is currently disabled, please use vape later.",
+					Title = "Fape",
+					Text = "Fape is currently disabled, please use vape later.",
 					Duration = 30,
 				})
 			end
@@ -2003,8 +2003,8 @@ task.spawn(function()
 					GuiLibrary.SelfDestruct()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
-					Title = "Vape",
-					Text = "Vape is currently disabled, please use vape later.",
+					Title = "Fape",
+					Text = "Fape is currently disabled, please use vape later.",
 					Duration = 30,
 				})
 			end

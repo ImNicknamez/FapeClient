@@ -105,7 +105,7 @@ local function displayErrorPopup(text, funclist)
 	local prompt = ErrorPrompt.new("Default")
 	prompt._hideErrorCode = true
 	local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-	prompt:setErrorTitle("Vape")
+	prompt:setErrorTitle("Fape")
 	local funcs
 	if funclist then 
 		funcs = {}
@@ -182,10 +182,10 @@ local function downloadVapeAsset(path)
 	return getcustomasset(path) 
 end
 
-assert(not shared.VapeExecuted, "Vape Already Injected")
+assert(not shared.VapeExecuted, "Fape Already Injected")
 shared.VapeExecuted = true
 
-for i,v in pairs({baseDirectory:gsub("/", ""), "vape", "FapeClient/Libraries", "FapeClient/CustomModules", "FapeClient/Profiles", baseDirectory.."Profiles", "FapeClient/assets"}) do 
+for i,v in pairs({baseDirectory:gsub("/", ""), "FapeClient", "FapeClient/Libraries", "FapeClient/CustomModules", "FapeClient/Profiles", baseDirectory.."Profiles", "FapeClient/assets"}) do 
 	if not isfolder(v) then makefolder(v) end
 end
 task.spawn(function()
@@ -217,7 +217,7 @@ if not isfile("FapeClient/CustomModules/cachechecked.txt") then
 		end
 	end
 	if isNotCached and not shared.VapeDeveloper then
-		displayErrorPopup("Vape has detected uncached files, If you have CustomModules click no, else click yes.", {No = function() end, Yes = function()
+		displayErrorPopup("Fape has detected uncached files, If you have CustomModules click no, else click yes.", {No = function() end, Yes = function()
 			for i,v in pairs({"FapeClient/Universal.lua", "FapeClient/MainScript.lua", "FapeClient/GuiLibrary.lua"}) do 
 				if isfile(v) and not readfile(v):find("--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.") then
 					delfile(v)
@@ -1976,7 +1976,7 @@ local function loadVape()
 	if not shared.VapeSwitchServers then
 		if BlatantModeToggle.Enabled then
 			pcall(function()
-				local frame = GuiLibrary.CreateNotification("Blatant Enabled", "Vape is now in Blatant Mode.", 5.5, "assets/WarningNotification.png")
+				local frame = GuiLibrary.CreateNotification("Blatant Enabled", "Fape is now in Blatant Mode.", 5.5, "assets/WarningNotification.png")
 				frame.Frame.Frame.ImageColor3 = Color3.fromRGB(236, 129, 44)
 			end)
 		end

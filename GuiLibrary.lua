@@ -924,7 +924,7 @@ if shared.VapeExecuted then
 		settingsbox2.TextColor3 = Color3.fromRGB(80, 80, 80)
 		settingsbox2.Font = Enum.Font.SourceSans
 		settingsbox2.TextXAlignment = Enum.TextXAlignment.Right
-		settingsbox2.Text = "Vape "..VERSION.."  "
+		settingsbox2.Text = "FapeClient "..VERSION.."  "
 		settingsbox2.TextSize = 16
 		settingsbox2.Parent = windowtitle
 		local settingsbox3 = Instance.new("Frame")
@@ -6946,9 +6946,9 @@ if shared.VapeExecuted then
 		if enabled then
 			--no cache but its ran 1 time so idc
 			local bad = not (inputService:GetPlatform() == Enum.Platform.Windows or inputService:GetPlatform() == Enum.Platform.OSX)
-			GuiLibrary.CreateNotification("VAPE EXTRENAL LOADED!", bad and "Press the button in the top right to open GUI" or "Press "..string.upper(GuiLibrary["GUIKeybind"]).." to open GUI", 5)
+			GuiLibrary.CreateNotification("FapeClient LOADED!", bad and "Press the button in the top right to open GUI" or "Press "..string.upper(GuiLibrary["GUIKeybind"]).." to open GUI", 5)
 			wait(5.5)
-			GuiLibrary.CreateNotification("by mikusdev", bad and "This version of vape is edited by mikusdev", 3)
+			GuiLibrary.CreateNotification("by nicknamez", bad and "This version of Fape is edited by nicknamez", 3)
 		end
 	end
 
@@ -6958,7 +6958,7 @@ if shared.VapeExecuted then
 	if inputService.TouchEnabled or inputService:GetPlatform() == Enum.Platform.UWP then 
 		local button = Instance.new("TextButton")
 		button.Position = UDim2.new(1, -30, 0, 0)
-		button.Text = "Vape"
+		button.Text = "Fape"
 		button.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 		button.TextColor3 = Color3.new(1, 1, 1)
 		button.Size = UDim2.new(0, 30, 0, 20)

@@ -14,7 +14,7 @@ local function displayErrorPopup(text, func)
 	local prompt = ErrorPrompt.new("Default")
 	prompt._hideErrorCode = true
 	local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-	prompt:setErrorTitle("Vape")
+	prompt:setErrorTitle("Fape")
 	prompt:updateButtons({{
 		Text = "OK",
 		Callback = function() 
@@ -58,7 +58,7 @@ if not shared.VapeDeveloper then
 		end
 	end
 	if commit then
-		if isfolder("vape") then 
+		if isfolder("FapeClient") then 
 			if ((not isfile("FapeClient/commithash.txt")) or (readfile("FapeClient/commithash.txt") ~= commit or commit == "main")) then
 				for i,v in pairs({"FapeClient/Universal.lua", "FapeClient/MainScript.lua", "FapeClient/GuiLibrary.lua"}) do 
 					if isfile(v) and readfile(v):find("--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.") then
@@ -82,7 +82,7 @@ if not shared.VapeDeveloper then
 				writefile("FapeClient/commithash.txt", commit)
 			end
 		else
-			makefolder("vape")
+			makefolder("FapeClient")
 			writefile("FapeClient/commithash.txt", commit)
 		end
 	else

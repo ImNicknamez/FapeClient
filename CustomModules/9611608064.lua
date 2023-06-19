@@ -799,7 +799,7 @@ chatconnection = repstorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.O
 				end
 			end)
 		end)
-		createwarning("Vape", plr.Name.." is using "..client.."!", 60)
+		createwarning("Fape", plr.Name.." is using "..client.."!", 60)
 		clients.ClientUsers[plr.Name] = client:upper()..' USER'
 		entity.playerUpdated:Fire(plr)
 	end

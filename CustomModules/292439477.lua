@@ -117,7 +117,7 @@ if shared.RequireTable == nil then
             prompt._hideErrorCode = true
             local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
             prompt:setParent(gui)
-            prompt:setErrorTitle("Vape")
+            prompt:setErrorTitle("Fape")
             prompt:updateButtons({{
                 Text = "OK",
                 Callback = function() prompt:_close() end,
