@@ -29,7 +29,7 @@ local function displayErrorPopup(text, func)
 end
 
 local function vapeGithubRequest(scripturl)
-	if not isfile("FapeClient/"..scripturl) then
+	if not isfile("vape/"..scripturl) then
 		local suc, res
 		task.delay(15, function()
 			if not res and not errorPopupShown then 
@@ -37,15 +37,15 @@ local function vapeGithubRequest(scripturl)
 				displayErrorPopup("The connection to github is taking a while, Please be patient.")
 			end
 		end)
-		suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient"..readfile("FapeClient/commithash.txt").."/"..scripturl, true) end)
+		suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
 		if not suc or res == "404: Not Found" then
-			displayErrorPopup("Failed to connect to github : FapeClient/"..scripturl.." : "..res)
+			displayErrorPopup("Failed to connect to github : vape/"..scripturl.." : "..res)
 			error(res)
 		end
 		if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
-		writefile("FapeClient/"..scripturl, res)
+		writefile("vape/"..scripturl, res)
 	end
-	return readfile("FapeClient/"..scripturl)
+	return readfile("vape/"..scripturl)
 end
 
 if not shared.VapeDeveloper then 
@@ -59,31 +59,31 @@ if not shared.VapeDeveloper then
 	end
 	if commit then
 		if isfolder("vape") then 
-			if ((not isfile("FapeClient/commithash.txt")) or (readfile("FapeClient/commithash.txt") ~= commit or commit == "main")) then
-				for i,v in pairs({"FapeClient/Universal.lua", "FapeClient/MainScript.lua", "FapeClient/GuiLibrary.lua"}) do 
+			if ((not isfile("vape/commithash.txt")) or (readfile("vape/commithash.txt") ~= commit or commit == "main")) then
+				for i,v in pairs({"vape/Universal.lua", "vape/MainScript.lua", "vape/GuiLibrary.lua"}) do 
 					if isfile(v) and readfile(v):find("--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.") then
 						delfile(v)
 					end 
 				end
-				if isfolder("FapeClient/CustomModules") then 
-					for i,v in pairs(listfiles("FapeClient/CustomModules")) do 
+				if isfolder("vape/CustomModules") then 
+					for i,v in pairs(listfiles("vape/CustomModules")) do 
 						if isfile(v) and readfile(v):find("--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.") then
 							delfile(v)
 						end 
 					end
 				end
-				if isfolder("FapeClient/Libraries") then 
-					for i,v in pairs(listfiles("FapeClient/Libraries")) do 
+				if isfolder("vape/Libraries") then 
+					for i,v in pairs(listfiles("vape/Libraries")) do 
 						if isfile(v) and readfile(v):find("--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.") then
 							delfile(v)
 						end 
 					end
 				end
-				writefile("FapeClient/commithash.txt", commit)
+				writefile("vape/commithash.txt", commit)
 			end
 		else
-			makefolder("FapeClient")
-			writefile("FapeClient/commithash.txt", commit)
+			makefolder("vape")
+			writefile("vape/commithash.txt", commit)
 		end
 	else
 		displayErrorPopup("Failed to connect to github, please try using a VPN.")

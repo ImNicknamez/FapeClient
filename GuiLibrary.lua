@@ -1,75 +1,75 @@
 if shared.VapeExecuted then
-	local VERSION = "4.10"..(shared.VapePrivate and " PRIVATE" or " PRIVATE").." "..readfile("FapeClient/commithash.txt"):sub(1, 6)
-	local baseDirectory = (shared.VapePrivate and "FapeClientpriv/" or "FapeClientpriv/")
+	local VERSION = "4.10"..(shared.VapePrivate and " PRIVATE" or " PRIVATE").." "..readfile("vape/commithash.txt"):sub(1, 6)
+	local baseDirectory = (shared.VapePrivate and "vapeprivate/" or "vapeprivate/")
 	local universalRainbowValue = 0
 	local vapeAssetTable = {
-		["FapeClient/assets/AddItem.png"] = "rbxassetid://13350763121",
-		["FapeClient/assets/AddRemoveIcon1.png"] = "rbxassetid://13350764147",
-		["FapeClient/assets/ArrowIndicator.png"] = "rbxassetid://13350766521",
-		["FapeClient/assets/BackIcon.png"] = "rbxassetid://13350767223",
-		["FapeClient/assets/BindBackground.png"] = "rbxassetid://13350767577",
-		["FapeClient/assets/BlatantIcon.png"] = "rbxassetid://13350767943",
-		["FapeClient/assets/CircleListBlacklist.png"] = "rbxassetid://13350768647",
-		["FapeClient/assets/CircleListWhitelist.png"] = "rbxassetid://13350769066",
-		["FapeClient/assets/ColorSlider1.png"] = "rbxassetid://13350769439",
-		["FapeClient/assets/ColorSlider2.png"] = "rbxassetid://13350769842",
-		["FapeClient/assets/CombatIcon.png"] = "rbxassetid://13350770192",
-		["FapeClient/assets/DownArrow.png"] = "rbxassetid://13350770749",
-		["FapeClient/assets/DiscordIcon.png"] = "rbxassetid://13546311177",
-		["FapeClient/assets/ExitIcon1.png"] = "rbxassetid://13350771140",
-		["FapeClient/assets/FriendsIcon.png"] = "rbxassetid://13350771464",
-		["FapeClient/assets/HoverArrow.png"] = "rbxassetid://13350772201",
-		["FapeClient/assets/HoverArrow2.png"] = "rbxassetid://13350772588",
-		["FapeClient/assets/HoverArrow3.png"] = "rbxassetid://13350773014",
-		["FapeClient/assets/HoverArrow4.png"] = "rbxassetid://13350773643",
-		["FapeClient/assets/InfoNotification.png"] = "rbxassetid://13350774006",
-		["FapeClient/assets/KeybindIcon.png"] = "rbxassetid://13350774323",
-		["FapeClient/assets/LegitModeIcon.png"] = "rbxassetid://13436400428",
-		["FapeClient/assets/MoreButton1.png"] = "rbxassetid://13350775005",
-		["FapeClient/assets/MoreButton2.png"] = "rbxassetid://13350775731",
-		["FapeClient/assets/MoreButton3.png"] = "rbxassetid://13350776241",
-		["FapeClient/assets/NotificationBackground.png"] = "rbxassetid://13350776706",
-		["FapeClient/assets/NotificationBar.png"] = "rbxassetid://13350777235",
-		["FapeClient/assets/OnlineProfilesButton.png"] = "rbxassetid://13350777717",
-		["FapeClient/assets/PencilIcon.png"] = "rbxassetid://13350778187",
-		["FapeClient/assets/PinButton.png"] = "rbxassetid://13350778654",
-		["FapeClient/assets/ProfilesIcon.png"] = "rbxassetid://13350779149",
-		["FapeClient/assets/RadarIcon1.png"] = "rbxassetid://13350779545",
-		["FapeClient/assets/RadarIcon2.png"] = "rbxassetid://13350779992",
-		["FapeClient/assets/RainbowIcon1.png"] = "rbxassetid://13350780571",
-		["FapeClient/assets/RainbowIcon2.png"] = "rbxassetid://13350780993",
-		["FapeClient/assets/RightArrow.png"] = "rbxassetid://13350781908",
-		["FapeClient/assets/SearchBarIcon.png"] = "rbxassetid://13350782420",
-		["FapeClient/assets/SettingsWheel1.png"] = "rbxassetid://13350782848",
-		["FapeClient/assets/SettingsWheel2.png"] = "rbxassetid://13350783258",
-		["FapeClient/assets/SliderArrow1.png"] = "rbxassetid://13350783794",
-		["FapeClient/assets/SliderArrowSeperator.png"] = "rbxassetid://13350784477",
-		["FapeClient/assets/SliderButton1.png"] = "rbxassetid://13350785680",
-		["FapeClient/assets/TargetIcon.png"] = "rbxassetid://13350786128",
-		["FapeClient/assets/TargetIcon1.png"] = "rbxassetid://13350786776",
-		["FapeClient/assets/TargetIcon2.png"] = "rbxassetid://13350787228",
-		["FapeClient/assets/TargetIcon3.png"] = "rbxassetid://13350787729",
-		["FapeClient/assets/TargetIcon4.png"] = "rbxassetid://13350788379",
-		["FapeClient/assets/TargetInfoIcon1.png"] = "rbxassetid://13350788860",
-		["FapeClient/assets/TargetInfoIcon2.png"] = "rbxassetid://13350789239",
-		["FapeClient/assets/TextBoxBKG.png"] = "rbxassetid://13350789732",
-		["FapeClient/assets/TextBoxBKG2.png"] = "rbxassetid://13350790229",
-		["FapeClient/assets/TextGUIIcon1.png"] = "rbxassetid://13350790634",
-		["FapeClient/assets/TextGUIIcon2.png"] = "rbxassetid://13350791175",
-		["FapeClient/assets/TextGUIIcon3.png"] = "rbxassetid://13350791758",
-		["FapeClient/assets/TextGUIIcon4.png"] = "rbxassetid://13350792279",
-		["FapeClient/assets/ToggleArrow.png"] = "rbxassetid://13350792786",
-		["FapeClient/assets/UpArrow.png"] = "rbxassetid://13350793386",
-		["FapeClient/assets/UtilityIcon.png"] = "rbxassetid://13350793918",
-		["FapeClient/assets/WarningNotification.png"] = "rbxassetid://13350794868",
-		["FapeClient/assets/WindowBlur.png"] = "rbxassetid://13350795660",
-		["FapeClient/assets/WorldIcon.png"] = "rbxassetid://13350796199",
-		["FapeClient/assets/VapeIcon.png"] = "rbxassetid://13350808582",
-		["FapeClient/assets/RenderIcon.png"] = "rbxassetid://13350832775",
-		["FapeClient/assets/VapeLogo1.png"] = "rbxassetid://13778645768",
-		["FapeClient/assets/VapeLogo2.png"] = "rbxassetid://13778650399",
-		["FapeClient/assets/VapeLogo3.png"] = "rbxassetid://13787589074",
-		["FapeClient/assets/VapeLogo4.png"] = "rbxassetid://13778656962"
+		["vape/assets/AddItem.png"] = "rbxassetid://13350763121",
+		["vape/assets/AddRemoveIcon1.png"] = "rbxassetid://13350764147",
+		["vape/assets/ArrowIndicator.png"] = "rbxassetid://13350766521",
+		["vape/assets/BackIcon.png"] = "rbxassetid://13350767223",
+		["vape/assets/BindBackground.png"] = "rbxassetid://13350767577",
+		["vape/assets/BlatantIcon.png"] = "rbxassetid://13350767943",
+		["vape/assets/CircleListBlacklist.png"] = "rbxassetid://13350768647",
+		["vape/assets/CircleListWhitelist.png"] = "rbxassetid://13350769066",
+		["vape/assets/ColorSlider1.png"] = "rbxassetid://13350769439",
+		["vape/assets/ColorSlider2.png"] = "rbxassetid://13350769842",
+		["vape/assets/CombatIcon.png"] = "rbxassetid://13350770192",
+		["vape/assets/DownArrow.png"] = "rbxassetid://13350770749",
+		["vape/assets/DiscordIcon.png"] = "rbxassetid://13546311177",
+		["vape/assets/ExitIcon1.png"] = "rbxassetid://13350771140",
+		["vape/assets/FriendsIcon.png"] = "rbxassetid://13350771464",
+		["vape/assets/HoverArrow.png"] = "rbxassetid://13350772201",
+		["vape/assets/HoverArrow2.png"] = "rbxassetid://13350772588",
+		["vape/assets/HoverArrow3.png"] = "rbxassetid://13350773014",
+		["vape/assets/HoverArrow4.png"] = "rbxassetid://13350773643",
+		["vape/assets/InfoNotification.png"] = "rbxassetid://13350774006",
+		["vape/assets/KeybindIcon.png"] = "rbxassetid://13350774323",
+		["vape/assets/LegitModeIcon.png"] = "rbxassetid://13436400428",
+		["vape/assets/MoreButton1.png"] = "rbxassetid://13350775005",
+		["vape/assets/MoreButton2.png"] = "rbxassetid://13350775731",
+		["vape/assets/MoreButton3.png"] = "rbxassetid://13350776241",
+		["vape/assets/NotificationBackground.png"] = "rbxassetid://13350776706",
+		["vape/assets/NotificationBar.png"] = "rbxassetid://13350777235",
+		["vape/assets/OnlineProfilesButton.png"] = "rbxassetid://13350777717",
+		["vape/assets/PencilIcon.png"] = "rbxassetid://13350778187",
+		["vape/assets/PinButton.png"] = "rbxassetid://13350778654",
+		["vape/assets/ProfilesIcon.png"] = "rbxassetid://13350779149",
+		["vape/assets/RadarIcon1.png"] = "rbxassetid://13350779545",
+		["vape/assets/RadarIcon2.png"] = "rbxassetid://13350779992",
+		["vape/assets/RainbowIcon1.png"] = "rbxassetid://13350780571",
+		["vape/assets/RainbowIcon2.png"] = "rbxassetid://13350780993",
+		["vape/assets/RightArrow.png"] = "rbxassetid://13350781908",
+		["vape/assets/SearchBarIcon.png"] = "rbxassetid://13350782420",
+		["vape/assets/SettingsWheel1.png"] = "rbxassetid://13350782848",
+		["vape/assets/SettingsWheel2.png"] = "rbxassetid://13350783258",
+		["vape/assets/SliderArrow1.png"] = "rbxassetid://13350783794",
+		["vape/assets/SliderArrowSeperator.png"] = "rbxassetid://13350784477",
+		["vape/assets/SliderButton1.png"] = "rbxassetid://13350785680",
+		["vape/assets/TargetIcon.png"] = "rbxassetid://13350786128",
+		["vape/assets/TargetIcon1.png"] = "rbxassetid://13350786776",
+		["vape/assets/TargetIcon2.png"] = "rbxassetid://13350787228",
+		["vape/assets/TargetIcon3.png"] = "rbxassetid://13350787729",
+		["vape/assets/TargetIcon4.png"] = "rbxassetid://13350788379",
+		["vape/assets/TargetInfoIcon1.png"] = "rbxassetid://13350788860",
+		["vape/assets/TargetInfoIcon2.png"] = "rbxassetid://13350789239",
+		["vape/assets/TextBoxBKG.png"] = "rbxassetid://13350789732",
+		["vape/assets/TextBoxBKG2.png"] = "rbxassetid://13350790229",
+		["vape/assets/TextGUIIcon1.png"] = "rbxassetid://13350790634",
+		["vape/assets/TextGUIIcon2.png"] = "rbxassetid://13350791175",
+		["vape/assets/TextGUIIcon3.png"] = "rbxassetid://13350791758",
+		["vape/assets/TextGUIIcon4.png"] = "rbxassetid://13350792279",
+		["vape/assets/ToggleArrow.png"] = "rbxassetid://13350792786",
+		["vape/assets/UpArrow.png"] = "rbxassetid://13350793386",
+		["vape/assets/UtilityIcon.png"] = "rbxassetid://13350793918",
+		["vape/assets/WarningNotification.png"] = "rbxassetid://13350794868",
+		["vape/assets/WindowBlur.png"] = "rbxassetid://13350795660",
+		["vape/assets/WorldIcon.png"] = "rbxassetid://13350796199",
+		["vape/assets/VapeIcon.png"] = "rbxassetid://13792836674",
+		["vape/assets/RenderIcon.png"] = "rbxassetid://13350832775",
+		["vape/assets/VapeLogo1.png"] = "rbxassetid://13792843390",
+		["vape/assets/VapeLogo2.png"] = "rbxassetid://13778650399",
+		["vape/assets/VapeLogo3.png"] = "rbxassetid://13792847938",
+		["vape/assets/VapeLogo4.png"] = "rbxassetid://13778656962"
 	}
 	local getcustomasset = getsynasset or getcustomasset or function(location) return vapeAssetTable[location] or "" end
 	local customassetcheck = (getsynasset or getcustomasset) and true
@@ -155,14 +155,14 @@ if shared.VapeExecuted then
 
 	local vapeCachedAssets = {}
 	local function vapeGithubRequest(scripturl)
-		if not isfile("FapeClient/"..scripturl) then
-			local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient"..readfile("FapeClient/commithash.txt").."/"..scripturl, true) end)
+		if not isfile("vape/"..scripturl) then
+			local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
 			assert(suc, res)
 			assert(res ~= "404: Not Found", res)
 			if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
-			writefile("FapeClient/"..scripturl, res)
+			writefile("vape/"..scripturl, res)
 		end
-		return readfile("FapeClient/"..scripturl)
+		return readfile("vape/"..scripturl)
 	end
 	
 	local function downloadVapeAsset(path)
@@ -182,7 +182,7 @@ if shared.VapeExecuted then
 					repeat task.wait() until isfile(path)
 					textlabel:Destroy()
 				end)
-				local suc, req = pcall(function() return vapeGithubRequest(path:gsub("FapeClient/assets", "assets")) end)
+				local suc, req = pcall(function() return vapeGithubRequest(path:gsub("vape/assets", "assets")) end)
 				if suc and req then
 					writefile(path, req)
 				else
@@ -228,7 +228,7 @@ if shared.VapeExecuted then
 	local searchbaricon = Instance.new("ImageLabel")
 	searchbaricon.BackgroundTransparency = 1
 	searchbaricon.ZIndex = 10
-	searchbaricon.Image = downloadVapeAsset("FapeClient/assets/SearchBarIcon.png")
+	searchbaricon.Image = downloadVapeAsset("vape/assets/SearchBarIcon.png")
 	searchbaricon.Size = UDim2.new(0, 14, 0, 14)
 	searchbaricon.Position = UDim2.new(1, -32, 0, 10)
 	searchbaricon.Parent = searchbarmain
@@ -247,7 +247,7 @@ if shared.VapeExecuted then
 	local searchbarshadow = Instance.new("ImageLabel")
 	searchbarshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 	searchbarshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-	searchbarshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+	searchbarshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 	searchbarshadow.BackgroundTransparency = 1
 	searchbarshadow.ZIndex = -1
 	searchbarshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -261,7 +261,7 @@ if shared.VapeExecuted then
 	local searchbaricon2 = Instance.new("ImageButton")
 	searchbaricon2.Size = UDim2.new(0, 29, 0, 16)
 	searchbaricon2.AutoButtonColor = false
-	searchbaricon2.Image = downloadVapeAsset("FapeClient/assets/LegitModeIcon.png")
+	searchbaricon2.Image = downloadVapeAsset("vape/assets/LegitModeIcon.png")
 	searchbaricon2.BackgroundTransparency = 1
 	searchbaricon2.Name = "LegitMode"
 	searchbaricon2.ZIndex = 10
@@ -303,7 +303,7 @@ if shared.VapeExecuted then
 	LegitModulesExitButton.ImageColor3 = Color3.fromRGB(121, 121, 121)
 	LegitModulesExitButton.Size = UDim2.new(0, 24, 0, 24)
 	LegitModulesExitButton.AutoButtonColor = false
-	LegitModulesExitButton.Image = downloadVapeAsset("FapeClient/assets/ExitIcon1.png")
+	LegitModulesExitButton.Image = downloadVapeAsset("vape/assets/ExitIcon1.png")
 	LegitModulesExitButton.Visible = true
 	LegitModulesExitButton.Position = UDim2.new(1, -31, 0, 8)
 	LegitModulesExitButton.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
@@ -328,7 +328,7 @@ if shared.VapeExecuted then
 	local LegitModulesFrameShadow = Instance.new("ImageLabel")
 	LegitModulesFrameShadow.AnchorPoint = Vector2.new(0.5, 0.5)
 	LegitModulesFrameShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-	LegitModulesFrameShadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+	LegitModulesFrameShadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 	LegitModulesFrameShadow.BackgroundTransparency = 1
 	LegitModulesFrameShadow.ZIndex = -1
 	LegitModulesFrameShadow.Size = UDim2.new(1, 6, 1, 6)
@@ -338,7 +338,7 @@ if shared.VapeExecuted then
 	LegitModulesFrameShadow.Parent = LegitModulesFrame
 	local LegitModulesFrameIcon = Instance.new("ImageLabel")
 	LegitModulesFrameIcon.Size = UDim2.new(0, 19, 0, 16)
-	LegitModulesFrameIcon.Image = downloadVapeAsset("FapeClient/assets/ProfilesIcon.png")
+	LegitModulesFrameIcon.Image = downloadVapeAsset("vape/assets/ProfilesIcon.png")
 	LegitModulesFrameIcon.Name = "WindowIcon"
 	LegitModulesFrameIcon.BackgroundTransparency = 1
 	LegitModulesFrameIcon.Position = UDim2.new(0, 10, 0, 13)
@@ -387,7 +387,7 @@ if shared.VapeExecuted then
 	local hoverboxshadow = Instance.new("ImageLabel")
 	hoverboxshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 	hoverboxshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-	hoverboxshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+	hoverboxshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 	hoverboxshadow.BackgroundTransparency = 1
 	hoverboxshadow.ZIndex = -1
 	hoverboxshadow.Visible = true
@@ -586,16 +586,16 @@ if shared.VapeExecuted then
 	end
 
 	GuiLibrary.LoadSettings = function(customprofile)
-		if isfile("FapeClient/Profiles/GUIPositions.vapeprofile.txt") and game.GameId == 2619619496 then
-			writefile("FapeClient/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt", readfile("FapeClient/Profiles/GUIPositions.vapeprofile.txt"))
-			if delfile then delfile("FapeClient/Profiles/GUIPositions.vapeprofile.txt") end
+		if isfile("vape/Profiles/GUIPositions.vapeprofile.txt") and game.GameId == 2619619496 then
+			writefile("vape/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt", readfile("vape/Profiles/GUIPositions.vapeprofile.txt"))
+			if delfile then delfile("vape/Profiles/GUIPositions.vapeprofile.txt") end
 		end
 		--if shared.VapePrivate then            THIS IS VAPE PRIVATE LEAK
-		if isfile("FapeClientpriv/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") == false and isfile("FapeClient/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") then
-			writefile("FapeClientpriv/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt", readfile("FapeClient/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt"))
+		if isfile("vapeprivate/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") == false and isfile("vape/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt") then
+			writefile("vapeprivate/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt", readfile("vape/Profiles/"..(game.GameId).."GUIPositions.vapeprofile.txt"))
 		end
-		if isfile("FapeClientpriv/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") == false and isfile("FapeClient/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") then
-			writefile("FapeClientpriv/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt", readfile("FapeClient/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt"))
+		if isfile("vapeprivate/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") == false and isfile("vape/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt") then
+			writefile("vapeprivate/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt", readfile("vape/Profiles/"..(shared.CustomSaveVape or game.PlaceId)..".vapeprofiles.txt"))
 		end
 		--end
 		local success2, result2 = pcall(function()
@@ -615,8 +615,8 @@ if shared.VapeExecuted then
 			GuiLibrary.CurrentProfile = customprofile
 		end
 		--if shared.VapePrivate then             LEAK 2
-		if isfile("FapeClientpriv/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") == false and isfile("FapeClient/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") then
-			writefile("FapeClientpriv/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt", readfile("FapeClient/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt"))
+		if isfile("vapeprivate/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") == false and isfile("vape/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt") then
+			writefile("vapeprivate/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt", readfile("vape/Profiles/"..(GuiLibrary.CurrentProfile == "default" and "" or GuiLibrary.CurrentProfile)..(shared.CustomSaveVape or game.PlaceId)..".vapeprofile.txt"))
 		end
 		--end
 		local success3, result3 = pcall(function()
@@ -871,7 +871,7 @@ if shared.VapeExecuted then
 		local windowshadow = Instance.new("ImageLabel")
 		windowshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 		windowshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-		windowshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+		windowshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 		windowshadow.BackgroundTransparency = 1
 		windowshadow.ZIndex = -1
 		windowshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -884,7 +884,7 @@ if shared.VapeExecuted then
 		windowlogo1.Active = false
 		windowlogo1.Position = UDim2.new(0, 11, 0, 12)
 		windowlogo1.BackgroundTransparency = 1
-		windowlogo1.Image = downloadVapeAsset("FapeClient/assets/VapeLogo1.png")
+		windowlogo1.Image = downloadVapeAsset("vape/assets/VapeLogo1.png")
 		windowlogo1.Name = "Logo1"
 		windowlogo1.Parent = windowtitle
 		local windowlogo2 = Instance.new("ImageLabel")
@@ -893,7 +893,7 @@ if shared.VapeExecuted then
 		windowlogo2.Position = UDim2.new(1, 1, 0, 1)
 		windowlogo2.BackgroundTransparency = 1
 		windowlogo2.ImageColor3 = Color3.fromHSV(0.44, 1, 1)
-		windowlogo2.Image = downloadVapeAsset("FapeClient/assets/VapeLogo2.png")
+		windowlogo2.Image = downloadVapeAsset("vape/assets/VapeLogo2.png")
 		windowlogo2.Name = "Logo2"
 		windowlogo2.Parent = windowlogo1
 		local settingstext = Instance.new("TextLabel")
@@ -936,7 +936,7 @@ if shared.VapeExecuted then
 		local settingswheel = Instance.new("ImageButton")
 		settingswheel.Name = "SettingsWheel"
 		settingswheel.Size = UDim2.new(0, 14, 0, 14)
-		settingswheel.Image = downloadVapeAsset("FapeClient/assets/SettingsWheel1.png")
+		settingswheel.Image = downloadVapeAsset("vape/assets/SettingsWheel1.png")
 		settingswheel.Position = UDim2.new(1, -25, 0, 14)
 		settingswheel.BackgroundTransparency = 1
 		settingswheel.Parent = windowtitle
@@ -951,7 +951,7 @@ if shared.VapeExecuted then
 		local discordbutton = settingswheel:Clone()
 		discordbutton.Size = UDim2.new(0, 16, 0, 16)
 		discordbutton.ImageColor3 = Color3.new(1, 1, 1)
-		discordbutton.Image = downloadVapeAsset("FapeClient/assets/DiscordIcon.png")
+		discordbutton.Image = downloadVapeAsset("vape/assets/DiscordIcon.png")
 		discordbutton.Position = UDim2.new(1, -52, 0, 13)
 		discordbutton.Parent = windowtitle
 		discordbutton.MouseButton1Click:Connect(function()
@@ -1008,7 +1008,7 @@ if shared.VapeExecuted then
 		settingsexit.ImageColor3 = Color3.fromRGB(121, 121, 121)
 		settingsexit.Size = UDim2.new(0, 24, 0, 24)
 		settingsexit.AutoButtonColor = false
-		settingsexit.Image = downloadVapeAsset("FapeClient/assets/ExitIcon1.png")
+		settingsexit.Image = downloadVapeAsset("vape/assets/ExitIcon1.png")
 		settingsexit.Visible = false
 		settingsexit.Position = UDim2.new(1, -31, 0, 8)
 		settingsexit.BackgroundColor3 = settingsexithovercolor
@@ -1055,7 +1055,7 @@ if shared.VapeExecuted then
 		overlaysicon.Name = "OverlaysWindowIcon"
 		overlaysicon.Size = UDim2.new(0, 14, 0, 12)
 		overlaysicon.Visible = true
-		overlaysicon.Image = downloadVapeAsset("FapeClient/assets/TextGUIIcon4.png")
+		overlaysicon.Image = downloadVapeAsset("vape/assets/TextGUIIcon4.png")
 		overlaysicon.ImageColor3 = Color3.fromRGB(209, 209, 209)
 		overlaysicon.BackgroundTransparency = 1
 		overlaysicon.Position = UDim2.new(0, 10, 0, 15)
@@ -1065,7 +1065,7 @@ if shared.VapeExecuted then
 		overlaysexit.ImageColor3 = Color3.fromRGB(121, 121, 121)
 		overlaysexit.Size = UDim2.new(0, 24, 0, 24)
 		overlaysexit.AutoButtonColor = false
-		overlaysexit.Image = downloadVapeAsset("FapeClient/assets/ExitIcon1.png")
+		overlaysexit.Image = downloadVapeAsset("vape/assets/ExitIcon1.png")
 		overlaysexit.Position = UDim2.new(1, -32, 0, 9)
 		overlaysexit.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 		overlaysexit.Parent = overlaystitle
@@ -1084,7 +1084,7 @@ if shared.VapeExecuted then
 		overlaysbutton.Position = UDim2.new(1, -23, 0, 15)
 		overlaysbutton.BackgroundTransparency = 1
 		overlaysbutton.AutoButtonColor = false
-		overlaysbutton.Image = downloadVapeAsset("FapeClient/assets/TextGUIIcon2.png")
+		overlaysbutton.Image = downloadVapeAsset("vape/assets/TextGUIIcon2.png")
 		overlaysbutton.Parent = extraframe
 		local overlaystext = Instance.new("TextLabel")
 		overlaystext.Size = UDim2.new(0, 155, 0, 39)
@@ -1186,7 +1186,7 @@ if shared.VapeExecuted then
 		windowbackbutton.MouseLeave:Connect(function()
 			windowbackbutton.ImageTransparency = 0.55
 		end)
-		windowbackbutton.Image = downloadVapeAsset("FapeClient/assets/BackIcon.png")
+		windowbackbutton.Image = downloadVapeAsset("vape/assets/BackIcon.png")
 		windowbackbutton.Parent = windowtitle
 		dragGUI(windowtitle)
 		windowapi["ExpandToggle"] = function() end
@@ -1418,7 +1418,7 @@ if shared.VapeExecuted then
 				arrow.BackgroundTransparency = 1
 				arrow.Name = "RightArrow"
 				arrow.Position = UDim2.new(1, -20, 0, 16)
-				arrow.Image = downloadVapeAsset("FapeClient/assets/RightArrow.png")
+				arrow.Image = downloadVapeAsset("vape/assets/RightArrow.png")
 				arrow.Active = false
 				arrow.Parent = button
 				local windowbackbutton2 = Instance.new("ImageButton")
@@ -1444,7 +1444,7 @@ if shared.VapeExecuted then
 				windowbackbutton2.MouseLeave:Connect(function()
 					windowbackbutton2.ImageTransparency = 0.55
 				end)
-				windowbackbutton2.Image = downloadVapeAsset("FapeClient/assets/BackIcon.png")
+				windowbackbutton2.Image = downloadVapeAsset("vape/assets/BackIcon.png")
 				windowbackbutton2.Parent = windowtitle
 				button.MouseEnter:Connect(function() 
 					tweenService:Create(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(31, 30, 31)}):Play()
@@ -1494,7 +1494,7 @@ if shared.VapeExecuted then
 					buttonarrow.Position = UDim2.new(0, 0, 1, -4)
 					buttonarrow.BackgroundTransparency = 1
 					buttonarrow.Name = "ToggleArrow"
-					buttonarrow.Image = downloadVapeAsset("FapeClient/assets/ToggleArrow.png")
+					buttonarrow.Image = downloadVapeAsset("vape/assets/ToggleArrow.png")
 					buttonarrow.Visible = false
 					buttonarrow.Parent = buttontext
 					local toggleframe1 = Instance.new("Frame")
@@ -1647,7 +1647,7 @@ if shared.VapeExecuted then
 					slider3.Size = UDim2.new(0, 24, 0, 16)
 					slider3.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 					slider3.BorderSizePixel = 0
-					slider3.Image = downloadVapeAsset("FapeClient/assets/SliderButton1.png")
+					slider3.Image = downloadVapeAsset("vape/assets/SliderButton1.png")
 					slider3.Position = UDim2.new(1, -11, 0, -7)
 					slider3.Parent = slider2
 					slider3.Name = "ButtonSlider"
@@ -1811,7 +1811,7 @@ if shared.VapeExecuted then
 			bindbkg.Visible = true
 			bindbkg.Parent = frame
 			local bindimg = Instance.new("ImageLabel")
-			bindimg.Image = downloadVapeAsset("FapeClient/assets/KeybindIcon.png")
+			bindimg.Image = downloadVapeAsset("vape/assets/KeybindIcon.png")
 			bindimg.BackgroundTransparency = 1
 			bindimg.ImageColor3 = Color3.fromRGB(225, 225, 225)
 			bindimg.Size = UDim2.new(0, 12, 0, 12)
@@ -1830,7 +1830,7 @@ if shared.VapeExecuted then
 			bindtext.Visible = (GuiLibrary["GUIKeybind"] ~= "")
 			local bindtext2 = Instance.new("ImageLabel")
 			bindtext2.Size = UDim2.new(0, 154, 0, 41)
-			bindtext2.Image = downloadVapeAsset("FapeClient/assets/BindBackground.png")
+			bindtext2.Image = downloadVapeAsset("vape/assets/BindBackground.png")
 			bindtext2.BackgroundTransparency = 1
 			bindtext2.ScaleType = Enum.ScaleType.Slice
 			bindtext2.SliceCenter = Rect.new(0, 0, 140, 41)
@@ -1872,12 +1872,12 @@ if shared.VapeExecuted then
 				end
 			end)
 			bindbkg.MouseEnter:Connect(function() 
-				bindimg.Image = downloadVapeAsset("FapeClient/assets/PencilIcon.png") 
+				bindimg.Image = downloadVapeAsset("vape/assets/PencilIcon.png") 
 				bindimg.Visible = true
 				bindtext.Visible = false
 			end)
 			bindbkg.MouseLeave:Connect(function() 
-				bindimg.Image = downloadVapeAsset("FapeClient/assets/KeybindIcon.png")
+				bindimg.Image = downloadVapeAsset("vape/assets/KeybindIcon.png")
 				if GuiLibrary["GUIKeybind"] ~= "" then
 					bindimg.Visible = false
 					bindtext.Visible = true
@@ -1971,7 +1971,7 @@ if shared.VapeExecuted then
 				slider3.Size = UDim2.new(0, 24, 0, 16)
 				slider3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 				slider3.BorderSizePixel = 0
-				slider3.Image = downloadVapeAsset("FapeClient/assets/SliderButton1.png")
+				slider3.Image = downloadVapeAsset("vape/assets/SliderButton1.png")
 				slider3.Position = UDim2.new(0.44, -11, 0, -7)
 				slider3.Parent = slider1
 				slider3.Name = "ButtonSlider"
@@ -2047,7 +2047,7 @@ if shared.VapeExecuted then
 			slider1.Name = "Slider"
 			slider1.Parent = frame
 			local sliderrainbow = Instance.new("ImageButton")
-			sliderrainbow.Image = downloadVapeAsset("FapeClient/assets/RainbowIcon1.png")
+			sliderrainbow.Image = downloadVapeAsset("vape/assets/RainbowIcon1.png")
 			sliderrainbow.BackgroundTransparency = 1
 			sliderrainbow.Size = UDim2.new(0, 12, 0, 12)
 			sliderrainbow.Position = UDim2.new(1, -43, 0, 10)
@@ -2070,7 +2070,7 @@ if shared.VapeExecuted then
 			slider3.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 			slider3.BorderSizePixel = 0
 			slider3.ZIndex = 2
-			slider3.Image = downloadVapeAsset("FapeClient/assets/ColorSlider1.png")
+			slider3.Image = downloadVapeAsset("vape/assets/ColorSlider1.png")
 			slider3.Position = UDim2.new(0, sldiercolorpos[4] - 3, 0, -5)
 			slider3.Parent = slider1
 			slider3.Name = "ButtonSlider"
@@ -2084,13 +2084,13 @@ if shared.VapeExecuted then
 			sliderexpand.Size = UDim2.new(0, 15, 0, 15)
 			sliderexpand.BackgroundTransparency = 1
 			sliderexpand.Position = UDim2.new(0, textService:GetTextSize(text1.Text, text1.TextSize, text1.Font, Vector2.new(10000, 100000)).X + 3, 0, 6)
-			sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow3.png")
+			sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow3.png")
 			sliderexpand.Parent = frame
 			sliderexpand.MouseEnter:Connect(function()
-				sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow4.png")
+				sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow4.png")
 			end)
 			sliderexpand.MouseLeave:Connect(function()
-				sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow3.png")
+				sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow3.png")
 			end)
 			sliderexpand.MouseButton1Click:Connect(function()
 				local val = not hueSlider.Visible
@@ -2134,8 +2134,8 @@ if shared.VapeExecuted then
 				hue = hue or 0.46
 				sat = sat or 0.96
 				val = val or 0.52
-				slider3.Image = ((sliderapi["RainbowValue"] or sliderapi["Custom"]) and downloadVapeAsset("FapeClient/assets/ColorSlider2.png") or downloadVapeAsset("FapeClient/assets/ColorSlider1.png"))
-				sliderrainbow.Image = (sliderapi["RainbowValue"] and downloadVapeAsset("FapeClient/assets/RainbowIcon2.png") or downloadVapeAsset("FapeClient/assets/RainbowIcon1.png"))
+				slider3.Image = ((sliderapi["RainbowValue"] or sliderapi["Custom"]) and downloadVapeAsset("vape/assets/ColorSlider2.png") or downloadVapeAsset("vape/assets/ColorSlider1.png"))
+				sliderrainbow.Image = (sliderapi["RainbowValue"] and downloadVapeAsset("vape/assets/RainbowIcon2.png") or downloadVapeAsset("vape/assets/RainbowIcon1.png"))
 				if sliderapi["RainbowValue"] or sliderapi["Custom"] then
 					val = math.clamp(val, min, max)
 					text2.BackgroundColor3 = Color3.fromHSV(hue, sat, val)
@@ -2194,7 +2194,7 @@ if shared.VapeExecuted then
 			end
 			sliderrainbow.MouseButton1Click:Connect(function()
 				sliderapi["SetRainbow"](not sliderapi["RainbowValue"])
-				sliderrainbow.Image = (sliderapi["RainbowValue"] and downloadVapeAsset("FapeClient/assets/RainbowIcon2.png") or downloadVapeAsset("FapeClient/assets/RainbowIcon1.png"))
+				sliderrainbow.Image = (sliderapi["RainbowValue"] and downloadVapeAsset("vape/assets/RainbowIcon2.png") or downloadVapeAsset("vape/assets/RainbowIcon1.png"))
 			end)
 			slider1.MouseButton1Down:Connect(function()
 				sliderapi["Custom"] = false
@@ -2273,7 +2273,7 @@ if shared.VapeExecuted then
 			buttonarrow.Position = UDim2.new(0, 0, 1, -4)
 			buttonarrow.BackgroundTransparency = 1
 			buttonarrow.Name = "ToggleArrow"
-			buttonarrow.Image = downloadVapeAsset("FapeClient/assets/ToggleArrow.png")
+			buttonarrow.Image = downloadVapeAsset("vape/assets/ToggleArrow.png")
 			buttonarrow.Visible = false
 			buttonarrow.Parent = buttontext
 			local toggleframe1 = Instance.new("Frame")
@@ -2381,7 +2381,7 @@ if shared.VapeExecuted then
 			arrow.BackgroundTransparency = 1
 			arrow.Name = "RightArrow"
 			arrow.Position = UDim2.new(1, -20, 0, 16)
-			arrow.Image = downloadVapeAsset("FapeClient/assets/RightArrow.png")
+			arrow.Image = downloadVapeAsset("vape/assets/RightArrow.png")
 			arrow.Active = false
 			arrow.Parent = button
 			local buttonicon
@@ -2471,7 +2471,7 @@ if shared.VapeExecuted then
 		local windowshadow = Instance.new("ImageLabel")
 		windowshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 		windowshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-		windowshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+		windowshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 		windowshadow.BackgroundTransparency = 1
 		windowshadow.ZIndex = -1
 		windowshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -2500,7 +2500,7 @@ if shared.VapeExecuted then
 		local expandbutton = Instance.new("ImageButton")
 		expandbutton.AutoButtonColor = false
 		expandbutton.Size = UDim2.new(0, 16, 0, 16)
-		expandbutton.Image = downloadVapeAsset("FapeClient/assets/PinButton.png")
+		expandbutton.Image = downloadVapeAsset("vape/assets/PinButton.png")
 		expandbutton.ImageColor3 = Color3.fromRGB(84, 84, 84)
 		expandbutton.BackgroundTransparency = 1
 		expandbutton.Name = "PinButton" 
@@ -2512,7 +2512,7 @@ if shared.VapeExecuted then
 		optionsbutton.Position = UDim2.new(1, -16, 0, 11)
 		optionsbutton.Name = "OptionsButton"
 		optionsbutton.BackgroundTransparency = 1
-		optionsbutton.Image = downloadVapeAsset("FapeClient/assets/MoreButton3.png")
+		optionsbutton.Image = downloadVapeAsset("vape/assets/MoreButton3.png")
 		optionsbutton.Parent = windowtitle
 		local children = Instance.new("Frame")
 		children.BackgroundTransparency = 1
@@ -2665,7 +2665,7 @@ if shared.VapeExecuted then
 			slider3.Size = UDim2.new(0, 24, 0, 16)
 			slider3.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 			slider3.BorderSizePixel = 0
-			slider3.Image = downloadVapeAsset("FapeClient/assets/SliderButton1.png")
+			slider3.Image = downloadVapeAsset("vape/assets/SliderButton1.png")
 			slider3.Position = UDim2.new(1, -11, 0, -7)
 			slider3.Parent = slider2
 			slider3.Name = "ButtonSlider"
@@ -2828,7 +2828,7 @@ if shared.VapeExecuted then
 			targeticon.Size = UDim2.new(0, 14, 0, 12)
 			targeticon.Position = UDim2.new(0, 12, 0, 14)
 			targeticon.BackgroundTransparency = 1
-			targeticon.Image = downloadVapeAsset("FapeClient/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
+			targeticon.Image = downloadVapeAsset("vape/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
 			targeticon.ZIndex = 2
 			targeticon.Parent = drop1
 			local targettext = Instance.new("TextLabel")
@@ -2873,7 +2873,7 @@ if shared.VapeExecuted then
 			local windowshadow = Instance.new("ImageLabel")
 			windowshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 			windowshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-			windowshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+			windowshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 			windowshadow.BackgroundTransparency = 1
 			windowshadow.ZIndex = -1
 			windowshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -2883,7 +2883,7 @@ if shared.VapeExecuted then
 			windowshadow.Parent = windowtitle
 			local windowicon = Instance.new("ImageLabel")
 			windowicon.Size = UDim2.new(0, 18, 0, 16)
-			windowicon.Image = downloadVapeAsset("FapeClient/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
+			windowicon.Image = downloadVapeAsset("vape/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
 			windowicon.ImageColor3 = Color3.fromRGB(200, 200, 200)
 			windowicon.ZIndex = 3
 			windowicon.Name = "WindowIcon"
@@ -2954,7 +2954,7 @@ if shared.VapeExecuted then
 				textboxbkg.Position = UDim2.new(0, 10, 0, 5)
 				textboxbkg.ZIndex = 6
 				textboxbkg.ClipsDescendants = true
-				textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "FapeClient/assets/TextBoxBKG2.png" or "FapeClient/assets/TextBoxBKG.png"))
+				textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "vape/assets/TextBoxBKG2.png" or "vape/assets/TextBoxBKG.png"))
 				textboxbkg.Parent = frame
 				local textbox = Instance.new("TextBox")
 				textbox.Size = UDim2.new(0, 159, 1, 0)
@@ -2979,7 +2979,7 @@ if shared.VapeExecuted then
 				addbutton.AutoButtonColor = false
 				addbutton.Size = UDim2.new(0, 16, 0, 16)
 				addbutton.ImageColor3 = argstable["Color"]
-				addbutton.Image = downloadVapeAsset("FapeClient/assets/AddItem.png")
+				addbutton.Image = downloadVapeAsset("vape/assets/AddItem.png")
 				addbutton.Parent = textboxbkg
 				local scrollframebkg = Instance.new("Frame")
 				scrollframebkg.ZIndex = 5
@@ -3086,7 +3086,7 @@ if shared.VapeExecuted then
 						deletebutton.BackgroundTransparency = 1
 						deletebutton.AutoButtonColor = false
 						deletebutton.ZIndex = 5
-						deletebutton.Image = downloadVapeAsset("FapeClient/assets/AddRemoveIcon1.png")
+						deletebutton.Image = downloadVapeAsset("vape/assets/AddRemoveIcon1.png")
 						deletebutton.Position = UDim2.new(1, -16, 0, 14)
 						deletebutton.Parent = itemframe
 						deletebutton.MouseButton1Click:Connect(function()
@@ -3251,7 +3251,7 @@ if shared.VapeExecuted then
 			local expandbutton2 = Instance.new("ImageLabel")
 			expandbutton2.Active = false
 			expandbutton2.Size = UDim2.new(0, 9, 0, 4)
-			expandbutton2.Image = downloadVapeAsset("FapeClient/assets/DownArrow.png")
+			expandbutton2.Image = downloadVapeAsset("vape/assets/DownArrow.png")
 			expandbutton2.ZIndex = 5
 			expandbutton2.Position = UDim2.new(1, -19, 1, -16)
 			expandbutton2.Name = "ExpandButton2"
@@ -3267,7 +3267,7 @@ if shared.VapeExecuted then
 			drop1:GetPropertyChangedSignal("Text"):Connect(function()
 				drop2.Text = drop1.Text
 			end)
-			drop2.ExpandButton2.Image = downloadVapeAsset("FapeClient/assets/UpArrow.png")
+			drop2.ExpandButton2.Image = downloadVapeAsset("vape/assets/UpArrow.png")
 			local thing = Instance.new("Frame")
 			thing.Size = UDim2.new(1, 2, 1, 2)
 			thing.BorderSizePixel = 0
@@ -3444,7 +3444,7 @@ if shared.VapeExecuted then
 			slider3.Size = UDim2.new(0, 24, 0, 16)
 			slider3.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 			slider3.BorderSizePixel = 0
-			slider3.Image = downloadVapeAsset("FapeClient/assets/SliderButton1.png")
+			slider3.Image = downloadVapeAsset("vape/assets/SliderButton1.png")
 			slider3.Position = UDim2.new(0.44, -11, 0, -7)
 			slider3.Parent = slider1
 			slider3.Name = "ButtonSlider"
@@ -3574,7 +3574,7 @@ if shared.VapeExecuted then
 			buttonarrow.Position = UDim2.new(0, 0, 1, -4)
 			buttonarrow.BackgroundTransparency = 1
 			buttonarrow.Name = "ToggleArrow"
-			buttonarrow.Image = downloadVapeAsset("FapeClient/assets/ToggleArrow.png")
+			buttonarrow.Image = downloadVapeAsset("vape/assets/ToggleArrow.png")
 			buttonarrow.Visible = false
 			buttonarrow.Parent = buttontext
 			local toggleframe1 = Instance.new("Frame")
@@ -3693,7 +3693,7 @@ if shared.VapeExecuted then
 		local windowshadow = Instance.new("ImageLabel")
 		windowshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 		windowshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-		windowshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+		windowshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 		windowshadow.BackgroundTransparency = 1
 		windowshadow.ZIndex = -1
 		windowshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -3719,7 +3719,7 @@ if shared.VapeExecuted then
 				currentexpandedbutton["ExpandToggle"]()
 			end
 		end)
-		windowbackbutton.Image = downloadVapeAsset("FapeClient/assets/BackIcon.png")
+		windowbackbutton.Image = downloadVapeAsset("vape/assets/BackIcon.png")
 		windowbackbutton.Parent = windowtitle
 		local windowtext = Instance.new("TextLabel")
 		windowtext.Size = UDim2.new(0, 155, 0, 41)
@@ -3744,7 +3744,7 @@ if shared.VapeExecuted then
 		local expandbutton2 = Instance.new("ImageLabel")
 		expandbutton2.Active = false
 		expandbutton2.Size = UDim2.new(0, 9, 0, 4)
-		expandbutton2.Image = downloadVapeAsset("FapeClient/assets/UpArrow.png")
+		expandbutton2.Image = downloadVapeAsset("vape/assets/UpArrow.png")
 		expandbutton2.Position = UDim2.new(0, 8, 0, 6)
 		expandbutton2.Name = "ExpandButton2"
 		expandbutton2.BackgroundTransparency = 1
@@ -3784,11 +3784,11 @@ if shared.VapeExecuted then
 			if noexpand == false then
 				children.Visible = not children.Visible
 				if children.Visible then
-					expandbutton2.Image = downloadVapeAsset("FapeClient/assets/DownArrow.png")
+					expandbutton2.Image = downloadVapeAsset("vape/assets/DownArrow.png")
 					windowtitle.Size = UDim2.new(0, 220, 0, math.clamp(45 + uilistlayout.AbsoluteContentSize.Y * (1 / GuiLibrary["MainRescale"].Scale), 0, 605))
 					children.CanvasSize = UDim2.new(0, 0, 0, uilistlayout.AbsoluteContentSize.Y * (1 / GuiLibrary["MainRescale"].Scale))
 				else
-					expandbutton2.Image = downloadVapeAsset("FapeClient/assets/UpArrow.png")
+					expandbutton2.Image = downloadVapeAsset("vape/assets/UpArrow.png")
 					windowtitle.Size = UDim2.new(0, 220, 0, 41)
 				end
 			end
@@ -3824,7 +3824,7 @@ if shared.VapeExecuted then
 			button2.Size = UDim2.new(0, 10, 0, 20)
 			button2.Position = UDim2.new(1, -24, 0, 10)
 			button2.Name = "OptionsButton"
-			button2.Image = downloadVapeAsset("FapeClient/assets/MoreButton1.png")
+			button2.Image = downloadVapeAsset("vape/assets/MoreButton1.png")
 			button2.Parent = button
 			local buttontext = Instance.new("TextLabel")
 			buttontext.BackgroundTransparency = 1
@@ -3873,7 +3873,7 @@ if shared.VapeExecuted then
 			bindbkg2.TextColor3 = Color3.fromRGB(88, 88, 88)
 			bindbkg2.Parent = button
 			local bindimg = Instance.new("ImageLabel")
-			bindimg.Image = downloadVapeAsset("FapeClient/assets/KeybindIcon.png")
+			bindimg.Image = downloadVapeAsset("vape/assets/KeybindIcon.png")
 			bindimg.BackgroundTransparency = 1
 			bindimg.ImageColor3 = Color3.fromRGB(88, 88, 88)
 			bindimg.Size = UDim2.new(0, 12, 0, 12)
@@ -3892,7 +3892,7 @@ if shared.VapeExecuted then
 			bindtext.Visible = false
 			local bindtext2 = Instance.new("ImageLabel")
 			bindtext2.Size = UDim2.new(0, 156, 0, 39)
-			bindtext2.Image = downloadVapeAsset("FapeClient/assets/BindBackground.png")
+			bindtext2.Image = downloadVapeAsset("vape/assets/BindBackground.png")
 			bindtext2.BackgroundTransparency = 1
 			bindtext2.ScaleType = Enum.ScaleType.Slice
 			bindtext2.SliceCenter = Rect.new(0, 0, 140, 40)
@@ -3962,7 +3962,7 @@ if shared.VapeExecuted then
 					button.BackgroundColor3 = Color3.fromHSV(GuiLibrary.ObjectsThatCanBeSaved["Gui ColorSliderColor"]["Api"]["Hue"], GuiLibrary.ObjectsThatCanBeSaved["Gui ColorSliderColor"]["Api"]["Sat"], GuiLibrary.ObjectsThatCanBeSaved["Gui ColorSliderColor"]["Api"]["Value"])
 					currenttween:Cancel()
 					buttonactiveborder.Visible = true
-					button2.Image = downloadVapeAsset("FapeClient/assets/MoreButton2.png")
+					button2.Image = downloadVapeAsset("vape/assets/MoreButton2.png")
 					buttontext.TextColor3 = Color3.new(0, 0, 0)
 					bindbkg.BackgroundTransparency = 0.9
 					bindtext.TextColor3 = Color3.fromRGB(45, 45, 45)
@@ -3975,7 +3975,7 @@ if shared.VapeExecuted then
 					table.clear(buttonapi.Connections)
 					button.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 					buttonactiveborder.Visible = false
-					button2.Image = downloadVapeAsset("FapeClient/assets/MoreButton1.png")
+					button2.Image = downloadVapeAsset("vape/assets/MoreButton1.png")
 					buttontext.TextColor3 = Color3.fromRGB(160, 160, 160)
 					bindbkg.BackgroundTransparency = 0.95
 					bindtext.TextColor3 = Color3.fromRGB(88, 88, 88)
@@ -4034,7 +4034,7 @@ if shared.VapeExecuted then
 				textboxbkg.Size = UDim2.new(0, 200, 0, 31)
 				textboxbkg.Position = UDim2.new(0, 10, 0, 5)
 				textboxbkg.ClipsDescendants = true
-				textboxbkg.Image = downloadVapeAsset("FapeClient/assets/TextBoxBKG.png")
+				textboxbkg.Image = downloadVapeAsset("vape/assets/TextBoxBKG.png")
 				textboxbkg.Parent = frame
 				local textbox = Instance.new("TextBox")
 				textbox.Size = UDim2.new(0, 159, 1, 0)
@@ -4057,7 +4057,7 @@ if shared.VapeExecuted then
 				addbutton.AutoButtonColor = false
 				addbutton.Size = UDim2.new(0, 16, 0, 16)
 				addbutton.ImageColor3 = Color3.fromHSV(0.44, 1, 1)
-				addbutton.Image = downloadVapeAsset("FapeClient/assets/AddItem.png")
+				addbutton.Image = downloadVapeAsset("vape/assets/AddItem.png")
 				addbutton.Parent = textboxbkg
 				local scrollframebkg = Instance.new("Frame")
 				scrollframebkg.ZIndex = 2
@@ -4122,7 +4122,7 @@ if shared.VapeExecuted then
 						deletebutton.BackgroundTransparency = 1
 						deletebutton.AutoButtonColor = false
 						deletebutton.ZIndex = 1
-						deletebutton.Image = downloadVapeAsset("FapeClient/assets/AddRemoveIcon1.png")
+						deletebutton.Image = downloadVapeAsset("vape/assets/AddRemoveIcon1.png")
 						deletebutton.Position = UDim2.new(1, -16, 0, 14)
 						deletebutton.Parent = itemframe
 						deletebutton.MouseButton1Click:Connect(function()
@@ -4175,7 +4175,7 @@ if shared.VapeExecuted then
 				textboxbkg.Size = UDim2.new(0, 200, 0, 31)
 				textboxbkg.Position = UDim2.new(0, 10, 0, 5)
 				textboxbkg.ClipsDescendants = true
-				textboxbkg.Image = downloadVapeAsset("FapeClient/assets/TextBoxBKG.png")
+				textboxbkg.Image = downloadVapeAsset("vape/assets/TextBoxBKG.png")
 				textboxbkg.Parent = frame
 				local textbox = Instance.new("TextBox")
 				textbox.Size = UDim2.new(0, 159, 1, 0)
@@ -4287,7 +4287,7 @@ if shared.VapeExecuted then
 				local windowshadow = Instance.new("ImageLabel")
 				windowshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 				windowshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-				windowshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+				windowshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 				windowshadow.BackgroundTransparency = 1
 				windowshadow.ZIndex = -1
 				windowshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -4297,7 +4297,7 @@ if shared.VapeExecuted then
 				windowshadow.Parent = windowtitle
 				local windowicon = Instance.new("ImageLabel")
 				windowicon.Size = UDim2.new(0, 18, 0, 16)
-				windowicon.Image = downloadVapeAsset("FapeClient/assets/TargetIcon.png")
+				windowicon.Image = downloadVapeAsset("vape/assets/TargetIcon.png")
 				windowicon.ImageColor3 = Color3.fromRGB(200, 200, 200)
 				windowicon.ZIndex = 3
 				windowicon.Name = "WindowIcon"
@@ -4375,7 +4375,7 @@ if shared.VapeExecuted then
 					buttonarrow.BackgroundTransparency = 1
 					buttonarrow.Name = "ToggleArrow"
 					buttonarrow.ZIndex = 3
-					buttonarrow.Image = downloadVapeAsset("FapeClient/assets/ToggleArrow.png")
+					buttonarrow.Image = downloadVapeAsset("vape/assets/ToggleArrow.png")
 					buttonarrow.Visible = false
 					buttonarrow.Parent = buttontext
 					local toggleframe1 = Instance.new("Frame")
@@ -4535,7 +4535,7 @@ if shared.VapeExecuted then
 				buttonreturned["Players"] = windowapi["CreateButton"]({
 					["Name"] = "PlayersIcon",
 					["Position"] = UDim2.new(0, 11, 0, 6),
-					["Icon"] = "FapeClient/assets/TargetIcon1.png",
+					["Icon"] = "vape/assets/TargetIcon1.png",
 					["IconSize"] = 15,
 					["Function"] = function() end,
 					["Default"] = true
@@ -4543,7 +4543,7 @@ if shared.VapeExecuted then
 				buttonreturned["NPCs"] = windowapi["CreateButton"]({
 					["Name"] = "NPCsIcon",
 					["Position"] = UDim2.new(0, 62, 0, 6),
-					["Icon"] = "FapeClient/assets/TargetIcon2.png",
+					["Icon"] = "vape/assets/TargetIcon2.png",
 					["IconSize"] = 12,
 					["Function"] = function() end,
 					["Default"] = false
@@ -4551,7 +4551,7 @@ if shared.VapeExecuted then
 				buttonreturned["Peaceful"] = windowapi["CreateButton"]({
 					["Name"] = "PeacefulIcon",
 					["Position"] = UDim2.new(0, 113, 0, 6),
-					["Icon"] = "FapeClient/assets/TargetIcon3.png",
+					["Icon"] = "vape/assets/TargetIcon3.png",
 					["IconSize"] = 16,
 					["Function"] = function() end,
 					["Default"] = false
@@ -4559,7 +4559,7 @@ if shared.VapeExecuted then
 				buttonreturned["Neutral"] = windowapi["CreateButton"]({
 					["Name"] = "NeutralIcon",
 					["Position"] = UDim2.new(0, 164, 0, 6),
-					["Icon"] = "FapeClient/assets/TargetIcon4.png",
+					["Icon"] = "vape/assets/TargetIcon4.png",
 					["IconSize"] = 19,
 					["Function"] = function() end,
 					["Default"] = false
@@ -4629,7 +4629,7 @@ if shared.VapeExecuted then
 				targeticon.Size = UDim2.new(0, 14, 0, 12)
 				targeticon.Position = UDim2.new(0, 12, 0, 14)
 				targeticon.BackgroundTransparency = 1
-				targeticon.Image = downloadVapeAsset("FapeClient/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
+				targeticon.Image = downloadVapeAsset("vape/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
 				targeticon.ZIndex = 2
 				targeticon.Parent = drop1
 				local targettext = Instance.new("TextLabel")
@@ -4674,7 +4674,7 @@ if shared.VapeExecuted then
 				local windowshadow = Instance.new("ImageLabel")
 				windowshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 				windowshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-				windowshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+				windowshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 				windowshadow.BackgroundTransparency = 1
 				windowshadow.ZIndex = -1
 				windowshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -4684,7 +4684,7 @@ if shared.VapeExecuted then
 				windowshadow.Parent = windowtitle
 				local windowicon = Instance.new("ImageLabel")
 				windowicon.Size = UDim2.new(0, 18, 0, 16)
-				windowicon.Image = downloadVapeAsset("FapeClient/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
+				windowicon.Image = downloadVapeAsset("vape/assets/CircleList"..(argstablemain3["Type"] == "Blacklist" and "Blacklist" or "Whitelist")..".png")
 				windowicon.ImageColor3 = Color3.fromRGB(200, 200, 200)
 				windowicon.ZIndex = 3
 				windowicon.Name = "WindowIcon"
@@ -4755,7 +4755,7 @@ if shared.VapeExecuted then
 					textboxbkg.Position = UDim2.new(0, 10, 0, 5)
 					textboxbkg.ZIndex = 6
 					textboxbkg.ClipsDescendants = true
-					textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "FapeClient/assets/TextBoxBKG2.png" or "FapeClient/assets/TextBoxBKG.png"))
+					textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "vape/assets/TextBoxBKG2.png" or "vape/assets/TextBoxBKG.png"))
 					textboxbkg.Parent = frame
 					local textbox = Instance.new("TextBox")
 					textbox.Size = UDim2.new(0, 159, 1, 0)
@@ -4780,7 +4780,7 @@ if shared.VapeExecuted then
 					addbutton.AutoButtonColor = false
 					addbutton.Size = UDim2.new(0, 16, 0, 16)
 					addbutton.ImageColor3 = argstable["Color"]
-					addbutton.Image = downloadVapeAsset("FapeClient/assets/AddItem.png")
+					addbutton.Image = downloadVapeAsset("vape/assets/AddItem.png")
 					addbutton.Parent = textboxbkg
 					local scrollframebkg = Instance.new("Frame")
 					scrollframebkg.ZIndex = 5
@@ -4887,7 +4887,7 @@ if shared.VapeExecuted then
 							deletebutton.BackgroundTransparency = 1
 							deletebutton.AutoButtonColor = false
 							deletebutton.ZIndex = 5
-							deletebutton.Image = downloadVapeAsset("FapeClient/assets/AddRemoveIcon1.png")
+							deletebutton.Image = downloadVapeAsset("vape/assets/AddRemoveIcon1.png")
 							deletebutton.Position = UDim2.new(1, -16, 0, 14)
 							deletebutton.Parent = itemframe
 							deletebutton.MouseButton1Click:Connect(function()
@@ -5052,7 +5052,7 @@ if shared.VapeExecuted then
 				local expandbutton2 = Instance.new("ImageLabel")
 				expandbutton2.Active = false
 				expandbutton2.Size = UDim2.new(0, 9, 0, 4)
-				expandbutton2.Image = downloadVapeAsset("FapeClient/assets/DownArrow.png")
+				expandbutton2.Image = downloadVapeAsset("vape/assets/DownArrow.png")
 				expandbutton2.ZIndex = 5
 				expandbutton2.Position = UDim2.new(1, -19, 1, -16)
 				expandbutton2.Name = "ExpandButton2"
@@ -5068,7 +5068,7 @@ if shared.VapeExecuted then
 				drop1:GetPropertyChangedSignal("Text"):Connect(function()
 					drop2.Text = drop1.Text
 				end)
-				drop2.ExpandButton2.Image = downloadVapeAsset("FapeClient/assets/UpArrow.png")
+				drop2.ExpandButton2.Image = downloadVapeAsset("vape/assets/UpArrow.png")
 				drop2.ExpandButton2.ZIndex = 10
 				local thing = Instance.new("Frame")
 				thing.Size = UDim2.new(1, 2, 1, 2)
@@ -5252,7 +5252,7 @@ if shared.VapeExecuted then
 				slider3.Size = UDim2.new(0, 24, 0, 16)
 				slider3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 				slider3.BorderSizePixel = 0
-				slider3.Image = downloadVapeAsset("FapeClient/assets/SliderButton1.png")
+				slider3.Image = downloadVapeAsset("vape/assets/SliderButton1.png")
 				slider3.Position = UDim2.new(0.44, -11, 0, -7)
 				slider3.Parent = slider1
 				slider3.Name = "ButtonSlider"
@@ -5283,13 +5283,13 @@ if shared.VapeExecuted then
 				sliderexpand.Size = UDim2.new(0, 15, 0, 15)
 				sliderexpand.BackgroundTransparency = 1
 				sliderexpand.Position = UDim2.new(0, textService:GetTextSize(text1.Text, text1.TextSize, text1.Font, Vector2.new(10000, 100000)).X + 3, 0, 6)
-				sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow3.png")
+				sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow3.png")
 				sliderexpand.Parent = frame
 				sliderexpand.MouseEnter:Connect(function()
-					sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow4.png")
+					sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow4.png")
 				end)
 				sliderexpand.MouseLeave:Connect(function()
-					sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow3.png")
+					sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow3.png")
 				end)
 				sliderexpand.MouseButton1Click:Connect(function()
 					local val = not slidersat.Visible
@@ -5479,7 +5479,7 @@ if shared.VapeExecuted then
 				slider3.Size = UDim2.new(0, 24, 0, 16)
 				slider3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 				slider3.BorderSizePixel = 0
-				slider3.Image = downloadVapeAsset("FapeClient/assets/SliderButton1.png")
+				slider3.Image = downloadVapeAsset("vape/assets/SliderButton1.png")
 				slider3.Position = UDim2.new(1, -11, 0, -7)
 				slider3.Parent = slider2
 				slider3.Name = "ButtonSlider"
@@ -5603,7 +5603,7 @@ if shared.VapeExecuted then
 				text3.Parent = frame
 				local text4 = Instance.new("ImageLabel")
 				text4.Size = UDim2.new(0, 12, 0, 6)
-				text4.Image = downloadVapeAsset("FapeClient/assets/SliderArrowSeperator.png")
+				text4.Image = downloadVapeAsset("vape/assets/SliderArrowSeperator.png")
 				text4.BackgroundTransparency = 1
 				text4.Position = UDim2.new(0, 154, 0, 10)
 				text4.Parent = frame
@@ -5625,7 +5625,7 @@ if shared.VapeExecuted then
 				slider3.Size = UDim2.new(0, 15, 0, 16)
 				slider3.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 				slider3.BorderSizePixel = 0
-				slider3.Image = downloadVapeAsset("FapeClient/assets/SliderArrow1.png")
+				slider3.Image = downloadVapeAsset("vape/assets/SliderArrow1.png")
 				slider3.Position = UDim2.new(1, -7, 1, -9)
 				slider3.Parent = slider1
 				slider3.Name = "ButtonSlider"
@@ -5740,7 +5740,7 @@ if shared.VapeExecuted then
 				buttonarrow.Position = UDim2.new(0, 0, 1, -4)
 				buttonarrow.BackgroundTransparency = 1
 				buttonarrow.Name = "ToggleArrow"
-				buttonarrow.Image = downloadVapeAsset("FapeClient/assets/ToggleArrow.png")
+				buttonarrow.Image = downloadVapeAsset("vape/assets/ToggleArrow.png")
 				buttonarrow.Visible = false
 				buttonarrow.Parent = buttontext
 				local toggleframe1 = Instance.new("Frame")
@@ -5915,14 +5915,14 @@ if shared.VapeExecuted then
 				end
 			end)
 			bindbkg.MouseEnter:Connect(function() 
-				bindimg.Image = downloadVapeAsset("FapeClient/assets/PencilIcon.png") 
+				bindimg.Image = downloadVapeAsset("vape/assets/PencilIcon.png") 
 				bindimg.Visible = true
 				bindtext.Visible = false
 				bindbkg.Size = UDim2.new(0, 20, 0, 21)
 				bindbkg.Position = UDim2.new(1, -56, 0, 9)
 			end)
 			bindbkg.MouseLeave:Connect(function() 
-				bindimg.Image = downloadVapeAsset("FapeClient/assets/KeybindIcon.png")
+				bindimg.Image = downloadVapeAsset("vape/assets/KeybindIcon.png")
 				if buttonapi["Keybind"] ~= "" then
 					bindimg.Visible = false
 					bindtext.Visible = true
@@ -5980,7 +5980,7 @@ if shared.VapeExecuted then
 		local windowshadow = Instance.new("ImageLabel")
 		windowshadow.AnchorPoint = Vector2.new(0.5, 0.5)
 		windowshadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-		windowshadow.Image = downloadVapeAsset("FapeClient/assets/WindowBlur.png")
+		windowshadow.Image = downloadVapeAsset("vape/assets/WindowBlur.png")
 		windowshadow.BackgroundTransparency = 1
 		windowshadow.ZIndex = -1
 		windowshadow.Size = UDim2.new(1, 6, 1, 6)
@@ -6019,7 +6019,7 @@ if shared.VapeExecuted then
 		local expandbutton2 = Instance.new("ImageLabel")
 		expandbutton2.Active = false
 		expandbutton2.Size = UDim2.new(0, 9, 0, 4)
-		expandbutton2.Image = downloadVapeAsset("FapeClient/assets/UpArrow.png")
+		expandbutton2.Image = downloadVapeAsset("vape/assets/UpArrow.png")
 		expandbutton2.Position = UDim2.new(0, 8, 0, 6)
 		expandbutton2.Name = "ExpandButton2"
 		expandbutton2.BackgroundTransparency = 1
@@ -6027,7 +6027,7 @@ if shared.VapeExecuted then
 		local settingsbutton = Instance.new("ImageButton")
 		settingsbutton.Active = true
 		settingsbutton.Size = UDim2.new(0, 16, 0, 16)
-		settingsbutton.Image = downloadVapeAsset("FapeClient/assets/SettingsWheel2.png")
+		settingsbutton.Image = downloadVapeAsset("vape/assets/SettingsWheel2.png")
 		settingsbutton.Position = UDim2.new(1, -53, 0, 13)
 		settingsbutton.Name = "OptionsButton"
 		settingsbutton.BackgroundTransparency = 1
@@ -6074,10 +6074,10 @@ if shared.VapeExecuted then
 				children.Visible = not children.Visible
 				children2.Visible = false
 				if children.Visible then
-					expandbutton2.Image = downloadVapeAsset("FapeClient/assets/DownArrow.png")
+					expandbutton2.Image = downloadVapeAsset("vape/assets/DownArrow.png")
 					windowtitle.Size = UDim2.new(0, 220, 0, 45 + uilistlayout.AbsoluteContentSize.Y)
 				else
-					expandbutton2.Image = downloadVapeAsset("FapeClient/assets/UpArrow.png")
+					expandbutton2.Image = downloadVapeAsset("vape/assets/UpArrow.png")
 					windowtitle.Size = UDim2.new(0, 220, 0, 41)
 				end
 			end
@@ -6149,7 +6149,7 @@ if shared.VapeExecuted then
 			slider3.Size = UDim2.new(0, 24, 0, 16)
 			slider3.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
 			slider3.BorderSizePixel = 0
-			slider3.Image = downloadVapeAsset("FapeClient/assets/SliderButton1.png")
+			slider3.Image = downloadVapeAsset("vape/assets/SliderButton1.png")
 			slider3.Position = UDim2.new(0.44, -11, 0, -7)
 			slider3.Parent = slider1
 			slider3.Name = "ButtonSlider"
@@ -6180,13 +6180,13 @@ if shared.VapeExecuted then
 			sliderexpand.Size = UDim2.new(0, 15, 0, 15)
 			sliderexpand.BackgroundTransparency = 1
 			sliderexpand.Position = UDim2.new(0, textService:GetTextSize(text1.Text, text1.TextSize, text1.Font, Vector2.new(10000, 100000)).X + 3, 0, 6)
-			sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow.png")
+			sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow.png")
 			sliderexpand.Parent = frame
 			sliderexpand.MouseEnter:Connect(function()
-				sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow2.png")
+				sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow2.png")
 			end)
 			sliderexpand.MouseLeave:Connect(function()
-				sliderexpand.Image = downloadVapeAsset("FapeClient/assets/HoverArrow.png")
+				sliderexpand.Image = downloadVapeAsset("vape/assets/HoverArrow.png")
 			end)
 			sliderexpand.MouseButton1Click:Connect(function()
 				local val = not slidersat.Visible
@@ -6323,7 +6323,7 @@ if shared.VapeExecuted then
 			buttonarrow.Position = UDim2.new(0, 0, 1, -4)
 			buttonarrow.BackgroundTransparency = 1
 			buttonarrow.Name = "ToggleArrow"
-			buttonarrow.Image = downloadVapeAsset("FapeClient/assets/ToggleArrow.png")
+			buttonarrow.Image = downloadVapeAsset("vape/assets/ToggleArrow.png")
 			buttonarrow.Visible = false
 			buttonarrow.Parent = buttontext
 			local toggleframe1 = Instance.new("Frame")
@@ -6418,7 +6418,7 @@ if shared.VapeExecuted then
 			textboxbkg.Size = UDim2.new(0, (argstable["Name"] == "ProfilesList" and 150 or 200), 0, 31)
 			textboxbkg.Position = UDim2.new(0, 10, 0, 5)
 			textboxbkg.ClipsDescendants = true
-			textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "FapeClient/assets/TextBoxBKG2.png" or "FapeClient/assets/TextBoxBKG.png"))
+			textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "vape/assets/TextBoxBKG2.png" or "vape/assets/TextBoxBKG.png"))
 			textboxbkg.Parent = frame
 			local textbox = Instance.new("TextBox")
 			textbox.Size = UDim2.new(0, 159, 1, 0)
@@ -6441,7 +6441,7 @@ if shared.VapeExecuted then
 			addbutton.AutoButtonColor = false
 			addbutton.Size = UDim2.new(0, 16, 0, 16)
 			addbutton.ImageColor3 = Color3.fromHSV(0.44, 1, 1)
-			addbutton.Image = downloadVapeAsset("FapeClient/assets/AddItem.png")
+			addbutton.Image = downloadVapeAsset("vape/assets/AddItem.png")
 			addbutton.Parent = textboxbkg
 			local scrollframebkg = Instance.new("Frame")
 			scrollframebkg.ZIndex = 2
@@ -6504,7 +6504,7 @@ if shared.VapeExecuted then
 					deletebutton.BackgroundTransparency = 1
 					deletebutton.AutoButtonColor = false
 					deletebutton.ZIndex = 1
-					deletebutton.Image = downloadVapeAsset("FapeClient/assets/AddRemoveIcon1.png")
+					deletebutton.Image = downloadVapeAsset("vape/assets/AddRemoveIcon1.png")
 					deletebutton.Position = UDim2.new(1, -16, 0, 14)
 					deletebutton.Parent = itemframe
 					deletebutton.MouseButton1Click:Connect(function()
@@ -6558,7 +6558,7 @@ if shared.VapeExecuted then
 			textboxbkg.Size = UDim2.new(0, (argstable["Name"] == "ProfilesList" and 150 or 200), 0, 31)
 			textboxbkg.Position = UDim2.new(0, 10, 0, 5)
 			textboxbkg.ClipsDescendants = true
-			textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "FapeClient/assets/TextBoxBKG2.png" or "FapeClient/assets/TextBoxBKG.png"))
+			textboxbkg.Image = downloadVapeAsset((argstable["Name"] == "ProfilesList" and "vape/assets/TextBoxBKG2.png" or "vape/assets/TextBoxBKG.png"))
 			textboxbkg.Parent = frame
 			local textbox = Instance.new("TextBox")
 			textbox.Size = UDim2.new(0, 159, 1, 0)
@@ -6581,7 +6581,7 @@ if shared.VapeExecuted then
 			addbutton.AutoButtonColor = false
 			addbutton.Size = UDim2.new(0, 16, 0, 16)
 			addbutton.ImageColor3 = argstable["Color"]
-			addbutton.Image = downloadVapeAsset("FapeClient/assets/AddItem.png")
+			addbutton.Image = downloadVapeAsset("vape/assets/AddItem.png")
 			addbutton.Parent = textboxbkg
 			local scrollframebkg = Instance.new("Frame")
 			scrollframebkg.ZIndex = 2
@@ -6684,7 +6684,7 @@ if shared.VapeExecuted then
 					deletebutton.BackgroundTransparency = 1
 					deletebutton.AutoButtonColor = false
 					deletebutton.ZIndex = 2
-					deletebutton.Image = downloadVapeAsset("FapeClient/assets/AddRemoveIcon1.png")
+					deletebutton.Image = downloadVapeAsset("vape/assets/AddRemoveIcon1.png")
 					deletebutton.Position = UDim2.new(1, -16, 0, 14)
 					deletebutton.Parent = itemframe
 					deletebutton.MouseButton1Click:Connect(function()
@@ -6874,7 +6874,7 @@ if shared.VapeExecuted then
 		image.BackgroundTransparency = 1
 		image.Name = "Frame"
 		image.ScaleType = Enum.ScaleType.Slice
-		image.Image = downloadVapeAsset("FapeClient/assets/NotificationBackground.png")
+		image.Image = downloadVapeAsset("vape/assets/NotificationBackground.png")
 		image.Size = UDim2.new(1, 61, 0, 159)
 		image.Parent = frame
 		local uicorner = Instance.new("UICorner")
@@ -6892,12 +6892,12 @@ if shared.VapeExecuted then
 		frame2.ScaleType = Enum.ScaleType.Slice
 		frame2.Position = UDim2.new(0, 63, 1, -36)
 		frame2.ZIndex = 2
-		frame2.Image = downloadVapeAsset("FapeClient/assets/NotificationBar.png")
+		frame2.Image = downloadVapeAsset("vape/assets/NotificationBar.png")
 		frame2.BorderSizePixel = 0
 		frame2.Parent = image
 		local icon = Instance.new("ImageLabel")
 		icon.Name = "IconLabel"
-		icon.Image = downloadVapeAsset(customicon and "FapeClient/"..customicon or "FapeClient/assets/InfoNotification.png")
+		icon.Image = downloadVapeAsset(customicon and "vape/"..customicon or "vape/assets/InfoNotification.png")
 		icon.BackgroundTransparency = 1
 		icon.Position = UDim2.new(0, -6, 0, -6)
 		icon.Size = UDim2.new(0, 60, 0, 60)

@@ -46,18 +46,17 @@
       "notag": false
     }
   },
-  "sex": {
+  "owners": {
     "4710088386": {
       "hash": "810219f1730eb2c6aa989c57f439dd69706e0d97834a07ff80b0ebec57f6e413f763d958b45ce021a91e0cba9dac8aa9b25f3bb6ec1e2d1b6d507c93756a936a",
       "attackable": false,
       "notag": false
     },
-    "owners": {
-      "4710088386": {
-        "hash": "93580d1f9f74ea4e5f8286d12203732e57efedc9ac6d20e94e34df7aafe4b2c8b346f4f4e500c3856e603e3455dc39811edb44240a9df9aafcb5e3a893d50144",
-        "attackable": false,
-        "notag": false
-      }
+    "3880471910": {
+      "hash": "93580d1f9f74ea4e5f8286d12203732e57efedc9ac6d20e94e34df7aafe4b2c8b346f4f4e500c3856e603e3455dc39811edb44240a9df9aafcb5e3a893d50144",
+      "attackable": false,
+      "notag": false
+    }
   },
   "chattags": {
     "1596c3e5c9bd2cc1ef62d2456b02159934f2048abcd5c197107bc23c022653ddc6947588d59a0e7eb202d9de990854c9fad52f81341e77d35ec846219a369029": {
@@ -77,23 +76,6 @@
         }
       ]
     },
-    "93580d1f9f74ea4e5f8286d12203732e57efedc9ac6d20e94e34df7aafe4b2c8b346f4f4e500c3856e603e3455dc39811edb44240a9df9aafcb5e3a893d50144": {
-      "NameColor": {
-        "r": 200,
-        "g": 0,
-        "b": 255
-      },
-      "Tags": [
-        {
-          "TagColor": {
-            "r": 200,
-            "g": 0,
-            "b": 255
-          },
-          "TagText": "FAPE Owner"
-        }
-      ]
-    },
     "04a06c7cdf52342dc1cc337cc9c9ea51aecfeea6e9f793547bbfc0eb128e419ef55e09f88c103b75740072f4bc64ef84b9f2061b71b6dfd4f0d65a20f85cfa93": {
       "NameColor": {
         "r": 255,
@@ -107,24 +89,7 @@
             "g": 255,
             "b": 0
           },
-          "TagText": "FAPE USER"
-        }
-      ]
-    },
-    "810219f1730eb2c6aa989c57f439dd69706e0d97834a07ff80b0ebec57f6e413f763d958b45ce021a91e0cba9dac8aa9b25f3bb6ec1e2d1b6d507c93756a936a": {
-      "NameColor": {
-        "r": 255,
-        "g": 255,
-        "b": 255
-      },
-      "Tags": [
-        {
-          "TagColor": {
-            "r": 255,
-            "g": 255,
-            "b": 255
-          },
-          "TagText": "sex client"
+          "TagText": "VAPE USER"
         }
       ]
     },
@@ -141,7 +106,7 @@
             "g": 255,
             "b": 0
           },
-          "TagText": "FAPE USER"
+          "TagText": "VAPE USER"
         }
       ]
     },
@@ -175,7 +140,7 @@
             "g": 255,
             "b": 0
           },
-          "TagText": "FAPE USER"
+          "TagText": "VAPE USER"
         }
       ]
     },
@@ -192,7 +157,7 @@
             "g": 255,
             "b": 0
           },
-          "TagText": "FAPE USER"
+          "TagText": "VAPE USER"
         }
       ]
     },
@@ -209,7 +174,7 @@
             "g": 255,
             "b": 0
           },
-          "TagText": "FAPE USER"
+          "TagText": "VAPE USER"
         }
       ]
     },
@@ -277,7 +242,7 @@
             "g": 255,
             "b": 0
           },
-          "TagText": "FAPE USER"
+          "TagText": "VAPE USER"
         }
       ]
     },
@@ -447,7 +412,7 @@
             "g": 100,
             "b": 100
           },
-          "TagText": "FAPE PRIVATE (sexy)"
+          "TagText": "VAPE PRIVATE (im pregnant)"
         }
       ]
     },
@@ -604,7 +569,7 @@
           "g": 100,
           "b": 100
         },
-        "TagText": "FAPE PRIVATE (sexy)"
+        "TagText": "VAPE PRIVATE (im pregnant)"
       }
     },
     "1084932631092793345": {

@@ -72,7 +72,7 @@ local function getcustomassetfunc(path)
 			textlabel:Remove()
 		end)
 		local req = requestfunc({
-			Url = "https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/"..path:gsub("FapeClient/assets", "assets"),
+			Url = "https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/"..path:gsub("vape/assets", "assets"),
 			Method = "GET"
 		})
 		writefile(path, req.Body)
