@@ -8791,9 +8791,9 @@ end
 runFunction(function()
 	local Hotbar = {Enabled = false}
 	Hotbar = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		Name = "RainbowHotbar",
-		HoverText = "from snoopy lol",
-		Function = function(callback)
+		["Name"] = "RainbowHotbar",
+		["HoverText"] = "from snoopy lol",
+		["Function"] = function(callback)
 			if callback then
 				local players = game:GetService("Players")
 				local lplr = players.LocalPlayer
@@ -8892,7 +8892,7 @@ jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
         if callback then
 			selectedtpmodule = 2
 			warningNotification("RespawnOnDeath", "Saved Spawnpoint!", 2)
-			team1BedSpawn =  Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y + 20, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+			team1BedSpawn =  Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
 			
 			respawnloop = game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
 				if character.Name == game.Players.LocalPlayer.Name then
@@ -8919,9 +8919,9 @@ killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
     ["HoverText"] = "nigger",
     ["Function"] = function(callback)
         if callback then
-            while killmets.Enabled do
+            repeat
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-            end
+			until (not killmets.Enabled)
         end
     end
 })
