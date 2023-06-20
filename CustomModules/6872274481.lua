@@ -8914,19 +8914,23 @@ jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
 	
 })
 
+local sexwithchilldren = 0
 killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
     Name = "kys",
     HoverText = "nigger",
     Function = function(callback)
         if callback then
+            ajholpjupasalej = 0
             repeat
-				wait(0.005)
+                warningNotification("KYS STUPID NIGGER HAHAHAHHAHA", "KYS STUPID NIGGER HAHAHAHHAHA", 5)
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-				warningNotification("KYS STUPID NIGGER HAHAHAHHAHA")
-            until (not killmets.ToggleButton())
+                wait(0.008)
+            until (sexwithchilldren == 1)
+        else
+            sexwithchilldren = 1
         end
     end
-})
+}) 
 
 																																																			
 
