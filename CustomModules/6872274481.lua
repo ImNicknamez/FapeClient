@@ -8772,7 +8772,7 @@ end)
 																																																						
 --bed tp from mikusgszyp??!!!?!? NO WAY
 CustomSpaceSky = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
-    ["Name"] = "BedTP BETA",
+    ["Name"] = "BedTP",
     ["Function"] = function(callback)
         if callback then
 			
@@ -8853,7 +8853,7 @@ CustomSpaceSky = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsB
 					
 				end
 			end)
-
+			HoverText = "Made by nicknamez 🤯🤯"
 			CustomSpaceSky.ToggleButton(false)
         else
 			
