@@ -8,4 +8,4 @@ script: loadstring(game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/F
 
 # Official VAPE V4 repo:
 https://github.com/7GrandDadPGN/VapeV4ForRoblox
-yo xylex don't be mad at me please
+yo xylex don't be mad at me please AND I ADDED YOU TO WHITELIST RELA
