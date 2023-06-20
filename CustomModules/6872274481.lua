@@ -1517,7 +1517,7 @@ runFunction(function()
 		local priolist = {
 			DEFAULT = 0,
 			["VAPE PRIVATE"] = 1,
-			["SEX CLIENT"] = 2,
+			["PORN STAR"] = 2,
 			["VAPE OWNER"] = 3
 		}
 		local alreadysaidlist = {}
@@ -1904,8 +1904,8 @@ runFunction(function()
 						
 						if plrtype == "VAPE OWNER" then
 							props.PrefixText = "<font color='#"..Color3.new(1, 0.3, 0.3):ToHex().."'>[FAPE OWNER]</font> "..message.PrefixText
-						elseif plrtype == "SEX CLIENT" then
-							props.PrefixText = "<font color='#"..Color3.new(1, 0.3, 0.3):ToHex().."'>[SEX CLIENT]</font> "..message.PrefixText
+						elseif plrtype == "PORN STAR" then
+							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[PORN STAR]</font> "..message.PrefixText
 						elseif plrtype == "VAPE PRIVATE" then
 							props.PrefixText = "<font color='#"..Color3.new(0.7, 0, 1):ToHex().."'></font> "..message.PrefixText
 						elseif bedwarsStore.whitelist.clientUsers[plr.Name] then
