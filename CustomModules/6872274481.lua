@@ -8920,6 +8920,7 @@ killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
     Function = function(callback)
         if callback then
             repeat
+				wait(0.005)
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			until (not killmets.Enabled)
         end
