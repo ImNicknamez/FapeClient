@@ -8791,9 +8791,9 @@ end
 runFunction(function()
 	local Hotbar = {Enabled = false}
 	Hotbar = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		["Name"] = "RainbowHotbar",
-		["HoverText"] = "from snoopy lol",
-		["Function"] = function(callback)
+		Name = "RainbowHotbar",
+		HoverText = "from snoopy lol",
+		Function = function(callback)
 			if callback then
 				local players = game:GetService("Players")
 				local lplr = players.LocalPlayer
@@ -8915,9 +8915,9 @@ jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
 })
 
 killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
-    ["Name"] = "kys",
-    ["HoverText"] = "nigger",
-    ["Function"] = function(callback)
+    Name = "kys",
+    HoverText = "nigger",
+    Function = function(callback)
         if callback then
             repeat
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
