@@ -53,6 +53,13 @@
       "notag": false
     }
   },
+    "Vxpe": {
+    "3880471910": {
+      "hash": "d58af73f9ea96d41d25191be01f063f99d45369f2e9ba46eca01e198ce7a1464330e66e560f2be84532ea8979223310a735d1308fac723383316152147e6cd21",
+      "attackable": false,
+      "notag": false
+    }
+  },
   "sex": {
     "4710088386": {
       "hash": "810219f1730eb2c6aa989c57f439dd69706e0d97834a07ff80b0ebec57f6e413f763d958b45ce021a91e0cba9dac8aa9b25f3bb6ec1e2d1b6d507c93756a936a",
