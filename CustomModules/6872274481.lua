@@ -8881,11 +8881,10 @@ runFunction(function()
 				BedTp["ToggleButton"](false)
 			end
 		end,
-		["HoverText"] = "made by nicknamez 🤯🤯🤯"
+		["HoverText"] = "made by nicknamez 🤯🤯🤯",
 	})
 end)
 
- --przycisk taki przykladowy emo sample example
 jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
     ["Name"] = "RespawnOnDeath",
 	["HoverText"] = "Teleport you to place where you last used keybind to this module",
@@ -8914,6 +8913,20 @@ jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
     end
 	
 })
+
+killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
+    ["Name"] = "kys",
+    ["HoverText"] = "nigger",
+    ["Function"] = function(callback)
+        if callback then
+            while killmets.Enabled do
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+            end
+        end
+    end
+})
+
+																																																			
 
 																																																																																																																																																
 runFunction(function()
