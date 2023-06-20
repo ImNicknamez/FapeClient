@@ -8881,7 +8881,7 @@ runFunction(function()
 				BedTp["ToggleButton"](false)
 			end
 		end,
-		["HoverText"] = "made by nicknamez 🤯🤯🤯",
+		HoverText = "made by nicknamez 🤯🤯🤯",
 	})
 end)
 
