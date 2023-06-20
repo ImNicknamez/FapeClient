@@ -513,6 +513,7 @@ Stop trying to bypass my whitelist system, I'll keep fighting until you give up 
 		local playertype, playerattackable, plrtag = "DEFAULT", true, true
 		local private = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.players, plrstr)
 		local owner = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.owners, plrstr)
+		local owner = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.vxpe, plrstr)
 		local seks = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.sex, plrstr)
 		local tab = owner or private
 		playertype = owner and "FAPE OWNER" or private and "FAPE PRIVATE" or seks and "PORN STAR" or vxpe and "VAPE OWNER" or "VAPE PRIVATE"
@@ -4427,7 +4428,7 @@ runFunction(function()
 						repeat
 							if ChatSpammer.Enabled then
 								pcall(function()
-									textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync((#ChatSpammerMessages.ObjectList > 0 and ChatSpammerMessages.ObjectList[math.random(1, #ChatSpammerMessages.ObjectList)] or "vxpe on top"))
+									textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync((#ChatSpammerMessages.ObjectList > 0 and ChatSpammerMessages.ObjectList[math.random(1, #ChatSpammerMessages.ObjectList)] or "Fxpe on top"))
 								end)
 							end
 							if waitnum ~= 0 then
@@ -4477,7 +4478,7 @@ runFunction(function()
 							task.spawn(function()
 								repeat
 									pcall(function()
-										replicatedStorageService.DefaultChatSystemChatEvents.SayMessageRequest:FireServer((#ChatSpammerMessages.ObjectList > 0 and ChatSpammerMessages.ObjectList[math.random(1, #ChatSpammerMessages.ObjectList)] or "vxpe on top"), "All")
+										replicatedStorageService.DefaultChatSystemChatEvents.SayMessageRequest:FireServer((#ChatSpammerMessages.ObjectList > 0 and ChatSpammerMessages.ObjectList[math.random(1, #ChatSpammerMessages.ObjectList)] or "Fxpe on top"), "All")
 									end)
 									if waitnum ~= 0 then
 										task.wait(waitnum)
