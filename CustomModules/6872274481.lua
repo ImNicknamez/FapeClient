@@ -21,6 +21,10 @@ local vapeEvents = setmetatable({}, {
 local vapeTargetInfo = shared.VapeTargetInfo
 local vapeInjected = true
 
+local bedpjoriti = 0
+local actualbed = 1
+local hasbeenlaunched = 0
+
 local bedwars = {}
 local bedwarsStore = {
 	attackReach = 0,
@@ -8766,7 +8770,96 @@ runFunction(function()
 	})
 end)
 																																																						
+--bed tp from mikusgszyp??!!!?!? NO WAY
+CustomSpaceSky = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+    ["Name"] = "BedTP BETA",
+    ["Function"] = function(callback)
+        if callback then
+			
+			function destroybed()
+				if bedpjoriti == actualbed then
+					warningNotification("BedTP", "Hiding your bed from script", 3)
+					print("destroying")
+					game.Workspace.bed:Destroy()
+					hasbeenlaunched = 1
+				else
+					actualbed = actualbed + 1
+				end
+			end
+			if hasbeenlaunched == 0 then
+				if game.Players.LocalPlayer.Team.Name == "Blue" then
+					bedpjoriti = 1
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Red" then
+					bedpjoriti = 2
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Green" then
+					bedpjoriti = 3
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Yellow" then
+					bedpjoriti = 4
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Orange" then
+					bedpjoriti = 5
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Pink" then
+					bedpjoriti = 6
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Cyan" then
+					bedpjoriti = 7
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Purple" then
+					bedpjoriti = 8
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Black" then
+					bedpjoriti = 9
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Gray" then
+					bedpjoriti = 10
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Lime" then
+					bedpjoriti = 11
+					destroybed()
+				end
+				if game.Players.LocalPlayer.Team.Name == "Brown" then
+					bedpjoriti = 12
+					destroybed()
+				end
+			end
+			warningNotification("BedTP", "bro got killed by herobrine", 3)
+			game.Players.LocalPlayer.Character.Humanoid.Health = 0
+			wait(0.1)
+			game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
+				if character.Name == game.Players.LocalPlayer.Name then
+					local team1BedSpawn = game.Workspace.bed.Position
+			
+					tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Linear) --Change Time
+					wait(0.36)
+					warningNotification("BedTP", "Teleporting to bed!", 2)
+					tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(team1BedSpawn)}) -- Change Teleport to Part
+					tween:Play()
+					wait(0.5)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y + 30, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+					
+				end
+			end)
 
+			CustomSpaceSky.ToggleButton(false)
+        else
+			
+        end
+    end
+})
 
 runFunction(function()
 	local ChestStealer = {Enabled = false}
