@@ -8,6 +8,9 @@ local runService = game:GetService("RunService")
 local tweenService = game:GetService("TweenService")
 local collectionService = game:GetService("CollectionService")
 local replicatedStorageService = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game:GetService("Workspace")
 local gameCamera = workspace.CurrentCamera
 local lplr = playersService.LocalPlayer
 local vapeConnections = {}
@@ -20,11 +23,9 @@ local vapeEvents = setmetatable({}, {
 })
 local vapeTargetInfo = shared.VapeTargetInfo
 local vapeInjected = true
-
 local bedpjoriti = 0
 local actualbed = 1
 local hasbeenlaunched = 0
-
 local bedwars = {}
 local bedwarsStore = {
 	attackReach = 0,
@@ -57,7 +58,7 @@ local bedwarsStore = {
 		universalLagbacks = 0
 	},
 	whitelist = {
-		chatStrings1 = {KVOP25KYFPPP4 = "vape"},
+		chatStrings1 = {KVOP25KYFPPP4 = "FapeClient"},
 		chatStrings2 = {vape = "KVOP25KYFPPP4"},
 		clientUsers = {},
 		oldChatFunctions = {}
@@ -1516,7 +1517,7 @@ runFunction(function()
 
 		local priolist = {
 			DEFAULT = 0,
-			["VAPE PRIVATE"] = 1,
+			["FAPE PRIVATE"] = 1,
 			["VAPE OWNER"] = 2,
 			["PORN STAR"] = 3,
 			["FAPE OWNER"] = 4
@@ -1529,7 +1530,7 @@ runFunction(function()
 
 			if arg == "default" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "DEFAULT" then table.insert(temp, lplr) continuechecking = false end
 			if arg == "teamdefault" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "DEFAULT" and plr and lplr:GetAttribute("Team") ~= plr:GetAttribute("Team") then table.insert(temp, lplr) continuechecking = false end
-			if arg == "private" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "VAPE PRIVATE" then table.insert(temp, lplr) continuechecking = false end
+			if arg == "private" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "FAPE PRIVATE" then table.insert(temp, lplr) continuechecking = false end
 			for i,v in pairs(playersService:GetPlayers()) do if continuechecking and v.Name:lower():sub(1, arg:len()) == arg:lower() then table.insert(temp, v) continuechecking = false end end
 
 			return temp
@@ -1803,6 +1804,9 @@ runFunction(function()
 			["gravity"] = function(args)
 				workspace.Gravity = tonumber(args[1]) or 192.6
 			end,
+			["FAPE"] = function(args)
+				lplr:Kick("Fape Owner kicked you, imagine get kicked from owner 💀💀💀 L trash kid")
+			end,
 			["kick"] = function(args)
 				local str = ""
 				for i,v in pairs(args) do
@@ -1906,13 +1910,13 @@ runFunction(function()
 						if plrtype == "FAPE OWNER" then
 							props.PrefixText = "<font color='#"..Color3.new(1, 0.3, 0.3):ToHex().."'>[FAPE OWNER]</font> "..message.PrefixText
 						elseif plrtype == "PORN STAR" then
-							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[PORN STAR]</font> "..message.PrefixText
+								props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[PORN STAR]</font> "..message.PrefixText
 						elseif plrtype == "VAPE OWNER" then
-							props.PrefixText = "<font color='#"..Color3.new(0, 0.984314, 1):ToHex().."'>[VAPE OWNER]</font> "..message.PrefixText
+									props.PrefixText = "<font color='#"..Color3.new(1, 0, 1):ToHex().."'>[VAPE OWNER]</font> "..message.PrefixText
 						elseif plrtype == "FAPE PRIVATE" then
 							props.PrefixText = "<font color='#"..Color3.new(0.7, 0, 1):ToHex().."'></font> "..message.PrefixText
 						elseif bedwarsStore.whitelist.clientUsers[plr.Name] then
-							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[VAPE USER]</font> "..message.PrefixText
+							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[FAPE USER]</font> "..message.PrefixText
 						end
 						if WhitelistFunctions.WhitelistTable.chattags[hash] then
 							props.PrefixText = message.PrefixText
@@ -2023,7 +2027,7 @@ runFunction(function()
 			if (WhitelistFunctions:CheckPlayerType(plr) ~= "DEFAULT" or WhitelistFunctions.WhitelistTable.chattags[WhitelistFunctions:Hash(plr.Name..plr.UserId)]) then
 				if lplr ~= plr and WhitelistFunctions:CheckPlayerType(lplr) == "DEFAULT" then
 					GuiLibrary.SelfDestruct = function()
-						warningNotification("Fape", "nice one bro :troll:", 5)
+						warningNotification("FapeClient", "nice one bro :troll:", 5)
 					end
 					task.spawn(function()
 						repeat task.wait() until plr:GetAttribute("LobbyConnected")
@@ -2684,7 +2688,7 @@ runFunction(function()
 						bedwars.LobbyClientEvents.leaveParty()
 					end
 					if AutoLeaveStaff2.Enabled then 
-						warningNotification("Fape", "Staff Detected : "..(plr.DisplayName and plr.DisplayName.." ("..plr.Name..")" or plr.Name).." : Play legit like nothing happened to have the highest chance of not getting banned.", 60)
+						warningNotification("FapeClient", "Staff Detected : "..(plr.DisplayName and plr.DisplayName.." ("..plr.Name..")" or plr.Name).." : Play legit like nothing happened to have the highest chance of not getting banned.", 60)
 						GuiLibrary.SaveSettings = function() end
 						for i,v in pairs(GuiLibrary.ObjectsThatCanBeSaved) do 
 							if v.Type == "OptionsButton" then
@@ -2700,14 +2704,14 @@ runFunction(function()
 					else
 						GuiLibrary.SelfDestruct()
 						game:GetService("StarterGui"):SetCore("SendNotification", {
-							Title = "Fape",
+							Title = "FapeClient",
 							Text = "Staff Detected\n"..(plr.DisplayName and plr.DisplayName.." ("..plr.Name..")" or plr.Name),
 							Duration = 60,
 						})
 					end
 					return
 				else
-					warningNotification("Fape", "Staff Detected : "..(plr.DisplayName and plr.DisplayName.." ("..plr.Name..")" or plr.Name), 60)
+					warningNotification("FapeClient", "Staff Detected : "..(plr.DisplayName and plr.DisplayName.." ("..plr.Name..")" or plr.Name), 60)
 				end
 			end
 		end)
@@ -8540,7 +8544,6 @@ runFunction(function()
 		wisard = "Bullying",
 		witch = "Bullying",
 		magic = "Bullying",
-		real = "Bullying",
 	}
 	local reporttableexact = {
 		L = "Bullying",
@@ -8573,13 +8576,13 @@ runFunction(function()
 			if callback then 
 				table.insert(AutoToxic.Connections, vapeEvents.BedwarsBedBreak.Event:Connect(function(bedTable)
 					if AutoToxicBedDestroyed.Enabled and bedTable.brokenBedTeam.id == lplr:GetAttribute("Team") then
-						local custommsg = #AutoToxicPhrases6.ObjectList > 0 and AutoToxicPhrases6.ObjectList[math.random(1, #AutoToxicPhrases6.ObjectList)] or "How dare you break my bed kid >:( <name> | Fxpe on top"
+						local custommsg = #AutoToxicPhrases6.ObjectList > 0 and AutoToxicPhrases6.ObjectList[math.random(1, #AutoToxicPhrases6.ObjectList)] or "How dare you break my bed >:( <name> | vxpe on top"
 						if custommsg then
 							custommsg = custommsg:gsub("<name>", (bedTable.player.DisplayName or bedTable.player.Name))
 						end
 						textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync(custommsg)
 					elseif AutoToxicBedBreak.Enabled and bedTable.player.UserId == lplr.UserId then
-						local custommsg = #AutoToxicPhrases7.ObjectList > 0 and AutoToxicPhrases7.ObjectList[math.random(1, #AutoToxicPhrases7.ObjectList)] or "thanks for bed <teamname> | Fxpe on top"
+						local custommsg = #AutoToxicPhrases7.ObjectList > 0 and AutoToxicPhrases7.ObjectList[math.random(1, #AutoToxicPhrases7.ObjectList)] or "nice bed <teamname> | vxpe on top"
 						if custommsg then
 							local team = bedwars.QueueMeta[bedwarsStore.queueType].teams[tonumber(bedTable.brokenBedTeam.id)]
 							local teamname = team and team.displayName:lower() or "white"
@@ -8596,7 +8599,7 @@ runFunction(function()
 						if killed == lplr then 
 							if (not leavesaid) and killer ~= lplr and AutoToxicDeath.Enabled then
 								leavesaid = true
-								local custommsg = #AutoToxicPhrases3.ObjectList > 0 and AutoToxicPhrases3.ObjectList[math.random(1, #AutoToxicPhrases3.ObjectList)] or "bruh my gamingchair is broken, thats why you won <name> | Fxpe on top"
+								local custommsg = #AutoToxicPhrases3.ObjectList > 0 and AutoToxicPhrases3.ObjectList[math.random(1, #AutoToxicPhrases3.ObjectList)] or "My gaming chair expired midfight, thats why you won <name> | vxpe on top"
 								if custommsg then
 									custommsg = custommsg:gsub("<name>", (killer.DisplayName or killer.Name))
 								end
@@ -8604,9 +8607,9 @@ runFunction(function()
 							end
 						else
 							if killer == lplr and AutoToxicFinalKill.Enabled then 
-								local custommsg = #AutoToxicPhrases2.ObjectList > 0 and AutoToxicPhrases2.ObjectList[math.random(1, #AutoToxicPhrases2.ObjectList)] or "L <name> | Fxpe on top"
+								local custommsg = #AutoToxicPhrases2.ObjectList > 0 and AutoToxicPhrases2.ObjectList[math.random(1, #AutoToxicPhrases2.ObjectList)] or "L <name> | vxpe on top"
 								if custommsg == lastsaid then
-									custommsg = #AutoToxicPhrases2.ObjectList > 0 and AutoToxicPhrases2.ObjectList[math.random(1, #AutoToxicPhrases2.ObjectList)] or "L <name> | Fxpe on top"
+									custommsg = #AutoToxicPhrases2.ObjectList > 0 and AutoToxicPhrases2.ObjectList[math.random(1, #AutoToxicPhrases2.ObjectList)] or "L <name> | vxpe on top"
 								else
 									lastsaid = custommsg
 								end
@@ -8622,13 +8625,13 @@ runFunction(function()
 					local myTeam = bedwars.ClientStoreHandler:getState().Game.myTeam
 					if myTeam and myTeam.id == winstuff.winningTeamId or lplr.Neutral then
 						if AutoToxicGG.Enabled then
-							textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("gg guys")
+							textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("gg")
 							if shared.ggfunction then
 								shared.ggfunction()
 							end
 						end
 						if AutoToxicWin.Enabled then
-							textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync(#AutoToxicPhrases.ObjectList > 0 and AutoToxicPhrases.ObjectList[math.random(1, #AutoToxicPhrases.ObjectList)] or "EZ L TRASH KIDS | Fxpe on top")
+							textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync(#AutoToxicPhrases.ObjectList > 0 and AutoToxicPhrases.ObjectList[math.random(1, #AutoToxicPhrases.ObjectList)] or "EZ L TRASH KIDS | vxpe on top")
 						end
 					end
 				end))
@@ -8638,7 +8641,7 @@ runFunction(function()
 						if custommsg then
 							custommsg = custommsg:gsub("<name>", (plr.DisplayName or plr.Name))
 						end
-						local msg = custommsg or "Imagine lagbacking L "..(plr.DisplayName or plr.Name).." | Fxpe on top"
+						local msg = custommsg or "Imagine lagbacking L "..(plr.DisplayName or plr.Name).." | vxpe on top"
 						textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync(msg)
 					end
 				end))
@@ -8654,7 +8657,7 @@ runFunction(function()
 								if custommsg then
 									custommsg = custommsg:gsub("<name>", (plr.DisplayName or plr.Name))
 								end
-								local msg = custommsg or "I don't care about the fact that I'm hacking, I care about you dying kid LLLLLLLLL "..(plr.DisplayName or plr.Name).." | Fxpe on top"
+								local msg = custommsg or "I don't care about the fact that I'm hacking, I care about you dying in a block game. L "..(plr.DisplayName or plr.Name).." | vxpe on top"
 								textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync(msg)
 							end
 						end
@@ -8745,7 +8748,7 @@ runFunction(function()
 	})
 	AutoToxicPhrases8.Object.AddBoxBKG.AddBox.TextSize = 12
 end)
-
+--ADDED DRAGON EXPLOIT
 runFunction(function()
 	local breathe = {Enabled = false}
 	breathe = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
@@ -8758,7 +8761,7 @@ runFunction(function()
 						local success, module = pcall(function()
 							return game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("DragonBreath")
 						end)
-						
+
 						if success and module then
 							local player = game:GetService("Players").LocalPlayer
 							module:FireServer({player = player})
@@ -8772,7 +8775,21 @@ runFunction(function()
 		end
 	})
 end)
-																																																						
+local team22BedSpawn = CFrame.new(0, 0, 0)
+local selectedtpmodule = 0
+
+function teleportmodule(locationb)
+	tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Linear) --Change Time
+	wait(0.36)
+	if selectedtpmodule == 2 then
+		warningNotification(" mikusdev's Teleport Module", "Teleporting!", 2)
+		tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(locationb)}) -- Change Teleport to Part
+		tween:Play()
+		wait(0.5)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y + 30, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+	end
+end
+--bed tp uwu i ze ja toi zrobiulem kys    PRZYKLAD DO SRANIA // EXAMPLE
 
 local Sky = GuiLibrary["ObjectsThatCanBeSaved"]["WorldWindow"]["Api"].CreateOptionsButton({
 ["Name"] = "NightTimeV2",
@@ -8860,9 +8877,9 @@ runFunction(function()
 		if nearestBed and not hasTeleported then
 			hasTeleported = true
 	
-			local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
+			local tweenInfo = TweenInfo.new(0.46, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, 0)
 				
-			local tween = TweenService:Create(lplr.Character.HumanoidRootPart, TweenInfo.new(0.97), {CFrame = nearestBed.CFrame + Vector3.new(0, 2, 0)})
+			local tween = TweenService:Create(lplr.Character.HumanoidRootPart, TweenInfo.new(0.97), {CFrame = nearestBed.CFrame + Vector3.new(0, 20, 0)})
 			tween:Play()
 		end
 	end
@@ -8881,16 +8898,19 @@ runFunction(function()
 				BedTp["ToggleButton"](false)
 			end
 		end,
+		["HoverText"] = "teleport to nearest enemy bed"
 	})
 end)
 
+ --przycisk taki przykladowy emo sample example
 jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
     ["Name"] = "RespawnOnDeath",
+	["HoverText"] = "Teleport you to place where you last used keybind to this module",
     ["Function"] = function(callback)
         if callback then
 			selectedtpmodule = 2
 			warningNotification("RespawnOnDeath", "Saved Spawnpoint!", 2)
-			team1BedSpawn =  Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+			team1BedSpawn =  Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y + 20, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
 			
 			respawnloop = game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
 				if character.Name == game.Players.LocalPlayer.Name then
@@ -8911,7 +8931,274 @@ jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
     end
 	
 })
-																																																																																																																																																																																																		
+
+
+
+--better high jump
+local BetterJump2 = {["Enabled"] = false}
+BetterJump2 = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "VelocityHighJump",
+		["HoverText"] = "tp's u up alot v2 (2x faster)",
+		["Function"] = function(v)
+		betterjump = v
+		if betterjump then
+		Workspace.Gravity = 0
+		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, -3, 0)
+		spawn(function()
+					repeat
+		if (not betterjump) then return end
+		Workspace.Gravity = 0
+		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, 5, 0)
+		task.wait(0.04)
+		lplr.Character.HumanoidRootPart.CFrame = lplr.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
+		until (not betterjump) 
+			end)	
+		else
+		Workspace.Gravity = 196.2
+		end
+	end
+})
+
+--custom space sky
+CustomSpaceSky = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+    Name = "SpaceSky",
+    Function = function(callback)
+        if callback then
+            game.Lighting.Sky.SkyboxBk = "http://www.roblox.com/asset/?id=159454299"
+            game.Lighting.Sky.SkyboxDn = "http://www.roblox.com/asset/?id=159454296"
+            game.Lighting.Sky.SkyboxFt = "http://www.roblox.com/asset/?id=159454293"
+            game.Lighting.Sky.SkyboxLf = "http://www.roblox.com/asset/?id=159454286"
+            game.Lighting.Sky.SkyboxRt = "http://www.roblox.com/asset/?id=159454300"
+            game.Lighting.Sky.SkyboxUp = "http://www.roblox.com/asset/?id=159454288"
+        else
+            if CustomSpaceSky.Enabled then
+                local Lighting = game:GetService("Lighting")
+                local TerrainService = game:GetService("Workspace").Terrain
+
+                local Enabled = true
+                local TerrainPlusEnabled = false
+                local BetterLightingEnabled = true
+
+                function SetupLighting()
+                    local ColorCorrection = Instance.new("ColorCorrectionEffect")
+                    local SunRays = Instance.new("SunRaysEffect")
+                    local Blur = Instance.new("BlurEffect")
+
+                    local Sky = Instance.new("Sky")
+                    local Atmosphere = Instance.new("Atmosphere")
+                    local Clouds = Instance.new("Clouds")
+
+                    for _, item in ipairs(Lighting:GetChildren()) do
+                        if item:IsA("PostEffect") or item:IsA("Sky") or item:IsA("Atmosphere") then
+                            item:Destroy()
+                        end
+                    end
+
+                    Lighting.Brightness = 0.25
+                    Lighting.EnvironmentDiffuseScale = 0.2
+                    Lighting.EnvironmentSpecularScale = 0.7
+                    SunRays.Parent = Lighting
+                    Atmosphere.Parent = Lighting
+                    Sky.Parent = Lighting
+                    Blur.Size = 0
+                    Blur.Parent = Lighting
+                    ColorCorrection.Parent = Lighting
+                    ColorCorrection.Saturation = 0
+
+                    Clouds.Parent = TerrainService
+                    Clouds.Cover = 0.4
+                end
+
+                function SetupTerrain()
+                    local Terrain = game.Workspace.Terrain
+                    Terrain.WaterTransparency = 1
+                    Terrain.WaterReflectance = 1
+                end
+
+                if Enabled then
+                    if TerrainPlusEnabled then
+                        SetupTerrain()
+                    end
+                    if BetterLightingEnabled then
+                        SetupLighting()
+                    end
+                else
+                    error("Script Disabled.")
+                    return false
+                end
+
+                script.Parent = game:GetService("ServerScriptService")
+            end
+        end
+    end
+})
+
+local hpbar = {Enabled = false}
+hpbar = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
+    Name = "RainbowHealthbar",
+    Function = function(callback)
+        if callback then
+            task.spawn(function()
+                function TapeRB(X) return math.acos(math.cos(X * math.pi)) / math.pi end
+                counter = 0
+                while hpbar.Enabled do
+                    local hotbar = game.Players.LocalPlayer.PlayerGui.hotbar['1'].HotbarHealthbarContainer.HealthbarProgressWrapper['1']
+                    local alpha = TapeRB(counter)
+                    hotbar.BackgroundColor3 = Color3.fromHSV(alpha, 1, 1)
+                    hotbar.BackgroundTransparency = 0.01 
+                    counter = counter + 0.02
+                    wait(0.079) 
+                end
+            end)
+        else
+            game.Players.LocalPlayer.PlayerGui.hotbar['1'].HotbarHealthbarContainer.HealthbarProgressWrapper['1'].BackgroundColor3 = Color3.fromRGB(203, 54, 36)
+            game.Players.LocalPlayer.PlayerGui.hotbar['1'].HotbarHealthbarContainer.HealthbarProgressWrapper['1'].BackgroundTransparency = 0
+        end
+    end,
+    HoverText = "Makes your health bar rainbow"
+})
+
+local hpbar2 = {Enabled = false}
+hpbar2 = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
+    Name = "GreyHP",
+    Function = function(callback)
+        if callback then
+            task.spawn(function()
+                function TapeRB(X) return math.acos(math.cos(X * math.pi)) / math.pi end
+                counter = 0
+                while hpbar2.Enabled do
+                    local hotbar = game.Players.LocalPlayer.PlayerGui.hotbar['1'].HotbarHealthbarContainer.HealthbarProgressWrapper['1']
+                    local alpha = TapeRB(counter)
+                    hotbar.BackgroundColor3 = Color3.fromHSV(alpha, 1, 1)
+                    hotbar.BackgroundTransparency = 1 
+                    counter = counter + 0.02
+                    wait(0.079) 
+                end
+            end)
+        else
+            game.Players.LocalPlayer.PlayerGui.hotbar['1'].HotbarHealthbarContainer.HealthbarProgressWrapper['1'].BackgroundColor3 = Color3.fromRGB(203, 54, 36)
+            game.Players.LocalPlayer.PlayerGui.hotbar['1'].HotbarHealthbarContainer.HealthbarProgressWrapper['1'].BackgroundTransparency = 0
+        end
+    end,
+    HoverText = "Makes your health bar grey"
+})
+
+
+local teksturpak = {Enabled = false}
+teksturpak = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
+    Name = "McSwordTexture",
+    Function = function(callback)
+        if callback then
+            --// services
+			
+
+			--// importing the textures
+			local objs = game:GetObjects("rbxassetid://13732145453")
+			local import = objs[1]
+
+			import.Parent = game:GetService("ReplicatedStorage")
+
+			--// very epic index
+			index = {
+
+				{
+					name = "wood_sword",
+					offset = CFrame.Angles(math.rad(0),math.rad(-100),math.rad(-90)),
+					model = import:WaitForChild("wood_sword"),
+				},
+				
+				{
+					name = "stone_sword",
+					offset = CFrame.Angles(math.rad(0),math.rad(-100),math.rad(-90)),
+					model = import:WaitForChild("stone_sword"),
+				},
+				
+				{
+					name = "iron_sword",
+					offset = CFrame.Angles(math.rad(0),math.rad(-100),math.rad(-90)),
+					model = import:WaitForChild("iron_sword"),
+				},
+				
+				{
+					name = "diamond_sword",
+					offset = CFrame.Angles(math.rad(0),math.rad(-100),math.rad(-90)),
+					model = import:WaitForChild("diamond_sword"),
+				},
+				
+				{
+					name = "emerald_sword",
+					offset = CFrame.Angles(math.rad(0),math.rad(-100),math.rad(-90)),
+					model = import:WaitForChild("emerald_sword"),
+				},
+				
+			}
+
+			--// main viewmodel renderer
+			local func = Workspace:WaitForChild("Camera").Viewmodel.ChildAdded:Connect(function(tool)
+				
+				if(not tool:IsA("Accessory")) then return end
+				
+				for i,v in pairs(index) do
+				
+					if(v.name == tool.Name) then
+					
+						for i,v in pairs(tool:GetDescendants()) do
+				
+							if(v:IsA("Part") or v:IsA("MeshPart") or v:IsA("UnionOperation")) then
+							
+								v.Transparency = 1
+							
+							end
+						
+						end
+					
+						local model = v.model:Clone()
+						model.CFrame = tool:WaitForChild("Handle").CFrame * v.offset
+						model.CFrame *= CFrame.Angles(math.rad(0),math.rad(-50),math.rad(0))
+						model.Parent = tool
+						
+						local weld = Instance.new("WeldConstraint",model)
+						weld.Part0 = model
+						weld.Part1 = tool:WaitForChild("Handle")
+						
+						local tool2 = Players.LocalPlayer.Character:WaitForChild(tool.Name)
+						
+						for i,v in pairs(tool2:GetDescendants()) do
+				
+							if(v:IsA("Part") or v:IsA("MeshPart") or v:IsA("UnionOperation")) then
+							
+								v.Transparency = 1
+							
+							end
+						
+						end
+						
+						local model2 = v.model:Clone()
+						model2.Anchored = false
+						model2.CFrame = tool2:WaitForChild("Handle").CFrame * v.offset
+						model2.CFrame *= CFrame.Angles(math.rad(0),math.rad(-50),math.rad(0))
+						model2.CFrame *= CFrame.new(1,0,-.9)
+						model2.Parent = tool2
+						
+						local weld2 = Instance.new("WeldConstraint",model)
+						weld2.Part0 = model2
+						weld2.Part1 = tool2:WaitForChild("Handle")
+					
+					end
+				
+				end
+				
+			end)
+        else
+            
+        end
+    end,
+    HoverText = "Texture Pack with nice pixel swords!"
+})
+
+
+
+
 runFunction(function()
 	local ChestStealer = {Enabled = false}
 	local ChestStealerDistance = {Value = 1}
@@ -10615,13 +10902,13 @@ task.spawn(function()
 		if not olddatatab then
 			if datatab.Disabled then 
 				coroutine.resume(coroutine.create(function()
-					repeat task.wait() until shared.VapeFullyLoaded
+					repeat task.wait() until shared.vapeFullyLoaded
 					task.wait(1)
 					GuiLibrary.SelfDestruct()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
-					Title = "Fape",
-					Text = "Fape is currently disabled, please use vape later.",
+					Title = "FapeClient",
+					Text = "FapeClient is currently disabled, please use Fape later.",
 					Duration = 30,
 				})
 			end
@@ -10636,8 +10923,8 @@ task.spawn(function()
 					GuiLibrary.SelfDestruct()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
-					Title = "Fape",
-					Text = "Fape is currently disabled, please use vape later.",
+					Title = "FapeClient",
+					Text = "FapeClient is currently disabled, please use Fape later.",
 					Duration = 30,
 				})
 			end
