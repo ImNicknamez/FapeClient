@@ -8886,7 +8886,6 @@ end)
 
 jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
     ["Name"] = "RespawnOnDeath",
-	["HoverText"] = "Teleport you to place where you last used keybind to this module",
     ["Function"] = function(callback)
         if callback then
 			selectedtpmodule = 2
@@ -8912,29 +8911,7 @@ jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
     end
 	
 })
-
-
-local sexwithchilldren = 0
-killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
-    Name = "kys",
-    HoverText = "nigger",
-    Function = function(callback)
-        if callback then
-            ajholpjupasalej = 0
-            repeat
-                warningNotification("KYS STUPID NIGGER HAHAHAHHAHA", "KYS STUPID NIGGER HAHAHAHHAHA", 5)
-                game.Players.LocalPlayer.Character.Humanoid.Health = 0
-                wait(0.008)
-            until (sexwithchilldren == 1)
-        else
-            sexwithchilldren = 1
-        end
-    end
-}) 
-
-																																																			
-
-																																																																																																																																																
+																																																																																																																																																																																																		
 runFunction(function()
 	local ChestStealer = {Enabled = false}
 	local ChestStealerDistance = {Value = 1}
