@@ -516,7 +516,7 @@ Stop trying to bypass my whitelist system, I'll keep fighting until you give up 
 		local vxpe = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.vxpe, plrstr)
 		local seks = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.sex, plrstr)
 		local tab = owner or private
-		playertype = owner and "FAPE OWNER" or private and "FAPE PRIVATE" or seks and "PORN STAR" or vxpe and "VAPE OWNER"
+		playertype = owner and "FAPE OWNER" or private and "FAPE PRIVATE" or seks and "PORN STAR" or vxpe and "VAPE OWNER" or "VAPE PRIVATE"
 		if tab then 
 			playerattackable = tab.attackable == nil or tab.attackable
 			plrtag = not tab.notag
