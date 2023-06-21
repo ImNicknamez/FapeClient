@@ -8914,6 +8914,7 @@ jajuszko = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
 	
 })
 
+--[[
 local sexwithchilldren = 0
 killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
     Name = "kys",
@@ -8931,7 +8932,7 @@ killmets = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButto
         end
     end
 }) 
-
+]]--
 																																																			
 
 																																																																																																																																																
