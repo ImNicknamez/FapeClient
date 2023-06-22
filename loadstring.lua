@@ -1,1 +1,1 @@
-loadstring(HttpGet("https://raw.githubusercontent.com/ImNicknamez/realbeam/main/NewMainScript.lua", true))
+loadstring(HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/NewMainScript.lua", true))
