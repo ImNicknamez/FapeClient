@@ -5701,7 +5701,7 @@ runFunction(function()
 	local oldfov2
 	local FieldOfView = {Enabled = false}
 	local FieldOfViewZoom = {Enabled = false}
-	FieldOfView = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
+	FieldOfView2 = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
 		Name = "FOVChanger V2",
 		Function = function(callback)
 			if callback then
@@ -5726,7 +5726,7 @@ runFunction(function()
 			bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
 		end
 	})
-	FieldOfViewValue = FieldOfView.CreateSlider({
+	FieldOfViewValue2 = FieldOfView2.CreateSlider({
 		Name = "FOV",
 		Min = 150,
 		Max = 1000,
@@ -10943,7 +10943,7 @@ task.spawn(function()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
 					Title = "FapeClient",
-					Text = "FapeClient is currently disabled, please use vape later.",
+					Text = "FapeClient is currently disabled, please use fape later.",
 					Duration = 30,
 				})
 			end
@@ -10959,7 +10959,7 @@ task.spawn(function()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
 					Title = "FapeClient",
-					Text = "FapeClient is currently disabled, please use vape later.",
+					Text = "FapeClient is currently disabled, please use fape later.",
 					Duration = 30,
 				})
 			end
