@@ -3,7 +3,7 @@ if shared.VapeExecuted then
 	local baseDirectory = (shared.VapePrivate and "FapePrivate/" or "FapePrivate/")
 	local universalRainbowValue = 0
 	local vapeAssetTable = {
-["FapeClient/assets/AddItem.png"] = "rbxassetid://13350763121",
+		["FapeClient/assets/AddItem.png"] = "rbxassetid://13350763121",
 		["FapeClient/assets/AddRemoveIcon1.png"] = "rbxassetid://13350764147",
 		["FapeClient/assets/ArrowIndicator.png"] = "rbxassetid://13350766521",
 		["FapeClient/assets/BackIcon.png"] = "rbxassetid://13350767223",

@@ -78,11 +78,11 @@ local vapeAssetTable = {
 	["FapeClient/assets/WarningNotification.png"] = "rbxassetid://13350794868",
 	["FapeClient/assets/WindowBlur.png"] = "rbxassetid://13350795660",
 	["FapeClient/assets/WorldIcon.png"] = "rbxassetid://13350796199",
-	["FapeClient/assets/VapeIcon.png"] = "rbxassetid://13350808582",
+	["FapeClient/assets/VapeIcon.png"] = "rbxassetid://13792836674",
 	["FapeClient/assets/RenderIcon.png"] = "rbxassetid://13350832775",
-	["FapeClient/assets/VapeLogo1.png"] = "rbxassetid://13778645768",
+	["FapeClient/assets/VapeLogo1.png"] = "rbxassetid://13792843390",
 	["FapeClient/assets/VapeLogo2.png"] = "rbxassetid://13778650399",
-	["FapeClient/assets/VapeLogo3.png"] = "rbxassetid://13787589074",
+	["FapeClient/assets/VapeLogo3.png"] = "rbxassetid://13797980773",
 	["FapeClient/assets/VapeLogo4.png"] = "rbxassetid://13778656962"
 }
 if inputService:GetPlatform() ~= Enum.Platform.Windows then 
