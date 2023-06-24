@@ -304,9 +304,9 @@ local function AllNearPosition(distance, amount, checktab)
 end
 
 local WhitelistFunctions = {StoredHashes = {}, PriorityList = {
-	["FAPE OWNER"] = 7,
-    ["PORN STAR"] = 5,
-	["FAPE PRIVATE"] = 2,
+	["FAPE OWNER"] = 3,
+    ["PORN STAR"] = 2,
+	["FAPE PRIVATE"] = 1
 	Default = 1
 }, WhitelistTable = {}, Loaded = false, CustomTags = {}}
 do
