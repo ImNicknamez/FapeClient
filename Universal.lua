@@ -2709,7 +2709,7 @@ runFunction(function()
 				local suc = false
 				repeat
 					suc = pcall(function()
-						DisguiseDescription = playersService:GetHumanoidDescriptionFromUserId(DisguiseId.Value == "" and 504060694 or tonumber(DisguiseId.Value))
+						DisguiseDescription = playersService:GetHumanoidDescriptionFromUserId(DisguiseId.Value == "" and 1435828652 or tonumber(DisguiseId.Value))
 					end)
 					if suc then break end
 					task.wait(1)
