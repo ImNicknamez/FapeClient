@@ -306,7 +306,7 @@ end
 local WhitelistFunctions = {StoredHashes = {}, PriorityList = {
 	["FAPE OWNER"] = 3,
     ["PORN STAR"] = 2,
-	["FAPE PRIVATE"] = 1
+	["FAPE PRIVATE"] = 1,
 	Default = 1
 }, WhitelistTable = {}, Loaded = false, CustomTags = {}}
 do
