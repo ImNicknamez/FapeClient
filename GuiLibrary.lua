@@ -156,7 +156,7 @@ if shared.VapeExecuted then
 	local vapeCachedAssets = {}
 	local function vapeGithubRequest(scripturl)
 		if not isfile("FapeClient/"..scripturl) then
-			local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/mikusgszyp/VapeV4_roblox_extrenal/"..readfile("FapeClient/commithash.txt").."/"..scripturl, true) end)
+			local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/"..readfile("FapeClient/commithash.txt").."/"..scripturl, true) end)
 			assert(suc, res)
 			assert(res ~= "404: Not Found", res)
 			if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
@@ -6946,9 +6946,9 @@ if shared.VapeExecuted then
 		if enabled then
 			--no cache but its ran 1 time so idc
 			local bad = not (inputService:GetPlatform() == Enum.Platform.Windows or inputService:GetPlatform() == Enum.Platform.OSX)
-			GuiLibrary.CreateNotification("FapeClient EXTRENAL LOADED!", bad and "Press the button in the top right to open GUI" or "Press "..string.upper(GuiLibrary["GUIKeybind"]).." to open GUI", 5)
+			GuiLibrary.CreateNotification("FapeClient!", bad and "Press the button in the top right to open GUI" or "Press "..string.upper(GuiLibrary["GUIKeybind"]).." to open GUI", 5)
 			wait(5.5)
-			GuiLibrary.CreateNotification("by mikusdev", bad and "This version of vape is edited by mikusdev", 3)
+			GuiLibrary.CreateNotification("by nicknamez", bad and "loaded my uwu edit meow meow", 3)
 		end
 	end
 
