@@ -1,5 +1,3 @@
---This watermark is used to delete the file if its cached, remove it to make the file persist after commits.
---This watermark is used to delete the file if its cached, remove it to make the file persist after commits.
 local GuiLibrary = shared.GuiLibrary
 local playersService = game:GetService("Players")
 local textService = game:GetService("TextService")
@@ -1519,8 +1517,8 @@ runFunction(function()
 
 		local priolist = {
 			DEFAULT = 0,
-			["FapeClient PRIVATE"] = 1,
-			["FapeClient OWNER"] = 2
+			["FAPE PRIVATE"] = 1,
+			["FAPE OWNER"] = 2
 		}
 		local alreadysaidlist = {}
 
@@ -1530,7 +1528,7 @@ runFunction(function()
 
 			if arg == "default" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "DEFAULT" then table.insert(temp, lplr) continuechecking = false end
 			if arg == "teamdefault" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "DEFAULT" and plr and lplr:GetAttribute("Team") ~= plr:GetAttribute("Team") then table.insert(temp, lplr) continuechecking = false end
-			if arg == "private" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "FapeClient PRIVATE" then table.insert(temp, lplr) continuechecking = false end
+			if arg == "private" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "FAPE PRIVATE" then table.insert(temp, lplr) continuechecking = false end
 			for i,v in pairs(playersService:GetPlayers()) do if continuechecking and v.Name:lower():sub(1, arg:len()) == arg:lower() then table.insert(temp, v) continuechecking = false end end
 
 			return temp
@@ -1904,12 +1902,12 @@ runFunction(function()
 					local hash = WhitelistFunctions:Hash(plr.Name..plr.UserId)
 					if plrtag then
 						
-						if plrtype == "FapeClient OWNER" then
+						if plrtype == "FAPE OWNER" then
 							props.PrefixText = "<font color='#"..Color3.new(1, 0.3, 0.3):ToHex().."'>[FAPE OWNER]</font> "..message.PrefixText
 						elseif plrtype == "FapeClient PRIVATE" then
 							props.PrefixText = "<font color='#"..Color3.new(0.7, 0, 1):ToHex().."'></font> "..message.PrefixText
 						elseif bedwarsStore.whitelist.clientUsers[plr.Name] then
-							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[VAPE USER]</font> "..message.PrefixText
+							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[FAPE USER]</font> "..message.PrefixText
 						end
 						if WhitelistFunctions.WhitelistTable.chattags[hash] then
 							props.PrefixText = message.PrefixText
