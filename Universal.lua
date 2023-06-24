@@ -305,6 +305,7 @@ end
 
 local WhitelistFunctions = {StoredHashes = {}, PriorityList = {
 	["FAPE OWNER"] = 7,
+    ["PORN STAR"] = 5,
 	["FAPE PRIVATE"] = 2,
 	Default = 1
 }, WhitelistTable = {}, Loaded = false, CustomTags = {}}
@@ -313,6 +314,7 @@ do
 	WhitelistFunctions.WhitelistTable = {
 		players = {},
 		owners = {},
+        sex = {},
 		chattags = {}
 	}
 	task.spawn(function()
@@ -476,6 +478,8 @@ Stop trying to bypass my whitelist system, I'll keep fighting until you give up 
 		if plrtag then
 			if plrstr == "FAPE OWNER" then
 				newtag = "[FAPE OWNER] "
+            elseif plrstr == "PORN STAR" then
+                    newtag = "[PORN STAR] "
 			elseif plrstr == "FAPE PRIVATE" then 
 				newtag = ""
 			end
@@ -506,7 +510,7 @@ Stop trying to bypass my whitelist system, I'll keep fighting until you give up 
 		local private = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.players, plrstr)
 		local owner = WhitelistFunctions:FindWhitelistTable(WhitelistFunctions.WhitelistTable.owners, plrstr)
 		local tab = owner or private
-		playertype = owner and "FAPE OWNER" or private and "FAPE PRIVATE" or "FAPE PRIVATE"
+		playertype = owner and "FAPE OWNER" or private and "FAPE PRIVATE" or sex and "PORN STAR" or "FAPE PRIVATE"
 		if tab then 
 			playerattackable = tab.attackable == nil or tab.attackable
 			plrtag = not tab.notag
