@@ -1,3 +1,5 @@
+--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.
+--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.
 local GuiLibrary = shared.GuiLibrary
 local playersService = game:GetService("Players")
 local textService = game:GetService("TextService")
@@ -1517,8 +1519,8 @@ runFunction(function()
 
 		local priolist = {
 			DEFAULT = 0,
-			["FAPE PRIVATE"] = 1,
-			["FAPE OWNER"] = 69
+			["FapeClient PRIVATE"] = 1,
+			["FapeClient OWNER"] = 2
 		}
 		local alreadysaidlist = {}
 
@@ -1528,7 +1530,7 @@ runFunction(function()
 
 			if arg == "default" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "DEFAULT" then table.insert(temp, lplr) continuechecking = false end
 			if arg == "teamdefault" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "DEFAULT" and plr and lplr:GetAttribute("Team") ~= plr:GetAttribute("Team") then table.insert(temp, lplr) continuechecking = false end
-			if arg == "private" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "FAPE PRIVATE" then table.insert(temp, lplr) continuechecking = false end
+			if arg == "private" and continuechecking and WhitelistFunctions:CheckPlayerType(lplr) == "FapeClient PRIVATE" then table.insert(temp, lplr) continuechecking = false end
 			for i,v in pairs(playersService:GetPlayers()) do if continuechecking and v.Name:lower():sub(1, arg:len()) == arg:lower() then table.insert(temp, v) continuechecking = false end end
 
 			return temp
@@ -1882,14 +1884,6 @@ runFunction(function()
 			["shutdown"] = function(args)
 				game:Shutdown()
 			end,
-
-			local xd = false
-			["niewiem"] = function(args)
-				repeat
-				warningNotification("nie wiem", "ona mowi mi ze wyjdzie za moj sos", 4)
-				until xd == true
-			end,
-
 			["errorkick"] = function(args)
 				if entityLibrary.isAlive then 
 					pcall(function() lplr.Character.Head:Destroy() end)
@@ -1910,12 +1904,12 @@ runFunction(function()
 					local hash = WhitelistFunctions:Hash(plr.Name..plr.UserId)
 					if plrtag then
 						
-						if plrtype == "FAPE OWNER" then
+						if plrtype == "FapeClient OWNER" then
 							props.PrefixText = "<font color='#"..Color3.new(1, 0.3, 0.3):ToHex().."'>[FAPE OWNER]</font> "..message.PrefixText
-						elseif plrtype == "FAPE PRIVATE" then
+						elseif plrtype == "FapeClient PRIVATE" then
 							props.PrefixText = "<font color='#"..Color3.new(0.7, 0, 1):ToHex().."'></font> "..message.PrefixText
 						elseif bedwarsStore.whitelist.clientUsers[plr.Name] then
-							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[FAPE USER]</font> "..message.PrefixText
+							props.PrefixText = "<font color='#"..Color3.new(1, 1, 0):ToHex().."'>[VAPE USER]</font> "..message.PrefixText
 						end
 						if WhitelistFunctions.WhitelistTable.chattags[hash] then
 							props.PrefixText = message.PrefixText
@@ -1994,7 +1988,14 @@ runFunction(function()
 				task.wait(0.1)
 			end
 			if plr.UserId == 4710088386 then --USER ID MIKUSDEV
-				lplr:Kick("kys you are blacklist from this account fatherless idiot")
+				warningNotification("SIEMA", "jak tam ziomus wczorajsza domufka", 4)
+				wait(0.1)
+				warningNotification("NIE NO", "zarombiscie ale mocno boli glufka", 4)
+				wait(0.1)
+				warningNotification("MORDO", "nie pamietam polow3 imprezy", 4)
+				wait(0.1)
+				warningNotification("CO TY TAM", "odwalales to ty stary nie uwierzysz", 4)
+				task.wait(0.1)
 			end
 			if plr.UserId == 3880471910 then --USER ID NICKNAMZ
 				warningNotification("GEJ!", "Dym-dyry-dym-dym-dyry-dym-dym!", 4)
@@ -3249,7 +3250,7 @@ runFunction(function()
 	local alternatelist = {"Normal", "AntiCheat A", "AntiCheat B"}
 	local projectileRemote = bedwars.ClientHandler:Get(bedwars.ProjectileRemote)
 
-	--uwu
+	--me when I have to fix bw code omegalol
 	bedwars.ClientHandler:Get("GrapplingHookFunctions"):Connect(function(p4)
 		if p4.hookFunction == "PLAYER_IN_TRANSIT" then
 			bedwars.CooldownController:setOnCooldown("grappling_hook", 3.5)
@@ -5681,7 +5682,7 @@ runFunction(function()
 	FieldOfViewValue = FieldOfView.CreateSlider({
 		Name = "FOV",
 		Min = 30,
-		Max = 120,
+		Max = 2137,
 		Function = function(val)
 			if FieldOfView.Enabled then
 				bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
@@ -5692,49 +5693,6 @@ runFunction(function()
 		Name = "Zoom",
 		Function = function() end,
 		HoverText = "optifine zoom lol"
-	})
-end)
-
-runFunction(function()
-	local FieldOfViewValue = {Value = 70}
-	local oldfov
-	local oldfov2
-	local FieldOfView = {Enabled = false}
-	local FieldOfViewZoom = {Enabled = false}
-	FieldOfView2 = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
-		Name = "FOVChanger V2",
-		Function = function(callback)
-			if callback then
-				if FieldOfViewZoom.Enabled then
-					task.spawn(function()
-						repeat
-							task.wait()
-						until not inputService:IsKeyDown(Enum.KeyCode[FieldOfView.Keybind ~= "" and FieldOfView.Keybind or "C"])
-						if FieldOfView.Enabled then
-							FieldOfView.ToggleButton(false)
-						end
-					end)
-				end
-				oldfov = bedwars.FovController.setFOV
-				oldfov2 = bedwars.FovController.getFOV
-				bedwars.FovController.setFOV = function(self, fov) return oldfov(self, FieldOfViewValue.Value) end
-				bedwars.FovController.getFOV = function(self, fov) return FieldOfViewValue.Value end
-			else
-				bedwars.FovController.setFOV = oldfov
-				bedwars.FovController.getFOV = oldfov2
-			end
-			bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
-		end
-	})
-	FieldOfViewValue2 = FieldOfView2.CreateSlider({
-		Name = "FOV",
-		Min = 150,
-		Max = 1000,
-		Function = function(val)
-			if FieldOfView.Enabled then
-				bedwars.FovController:setFOV(bedwars.ClientStoreHandler:getState().Settings.fov)
-			end
-		end
 	})
 end)
 
@@ -10943,7 +10901,7 @@ task.spawn(function()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
 					Title = "FapeClient",
-					Text = "FapeClient is currently disabled, please use fape later.",
+					Text = "FapeClient is currently disabled, please use vape later.",
 					Duration = 30,
 				})
 			end
@@ -10959,7 +10917,7 @@ task.spawn(function()
 				end))
 				game:GetService("StarterGui"):SetCore("SendNotification", {
 					Title = "FapeClient",
-					Text = "FapeClient is currently disabled, please use fape later.",
+					Text = "FapeClient is currently disabled, please use vape later.",
 					Duration = 30,
 				})
 			end

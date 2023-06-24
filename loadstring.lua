@@ -1,1 +1,1 @@
-loadstring(HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/NewMainScript.lua", true))
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ImNicknamez/FapeClient/main/NewMainScript.lua", true))()
